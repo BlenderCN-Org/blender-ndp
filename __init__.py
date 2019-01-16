@@ -88,8 +88,6 @@ def unregister():
         unregister_class(c)
     
     unregister_events()
-    
-
 
 
 separator = lambda menu, context: menu.layout.separator()

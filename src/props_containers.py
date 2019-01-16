@@ -33,6 +33,9 @@ def _init_size_policy(container, context):
     
 def _set_dirty(self, context):
     self.is_dirty = True
+    
+def _set_real_dirty(self, context):
+    self.is_divisions_dirty = True
 
 class PropertiesContainer(bpy.types.PropertyGroup):
     #ndp marker:
@@ -42,9 +45,9 @@ class PropertiesContainer(bpy.types.PropertyGroup):
         items = prim_types,
         name = "Type")
     #divisions are also used as segments and rings for sphere, vertices for circle, etc
-    divisions_x : bpy.props.IntProperty(default=0, min=0, soft_max=100, update=_set_dirty)
-    divisions_y : bpy.props.IntProperty(default=0, min=0, soft_max=100, update=_set_dirty)
-    divisions_z : bpy.props.IntProperty(default=0, min=0, soft_max=100, update=_set_dirty)
+    divisions_x : bpy.props.IntProperty(default=0, min=0, soft_max=100, update=_set_real_dirty)
+    divisions_y : bpy.props.IntProperty(default=0, min=0, soft_max=100, update=_set_real_dirty)
+    divisions_z : bpy.props.IntProperty(default=0, min=0, soft_max=100, update=_set_real_dirty)
     #axis_based_size
     size_x : bpy.props.FloatProperty(default=1, update=_set_dirty)
     size_y : bpy.props.FloatProperty(default=1, update=_set_dirty)
@@ -77,7 +80,8 @@ class PropertiesContainer(bpy.types.PropertyGroup):
         name = "Size Policy",
         update=_set_dirty)
 
-    is_dirty = True
+    is_dirty : bpy.props.BoolProperty(default=True)
+    is_divisions_dirty : bpy.props.BoolProperty(default=False)
     
     def _is_radius_based(self):
         result = (self.prim_type == PrimType.Circle.name.upper())
