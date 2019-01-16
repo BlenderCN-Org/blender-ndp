@@ -30,12 +30,6 @@ def _init_size_policy(container, context):
             "",
             2))
     return options
-    
-def _set_dirty(self, context):
-    self.is_dirty = True
-    
-def _set_real_dirty(self, context):
-    self.is_divisions_dirty = True
 
 class PropertiesContainer(bpy.types.PropertyGroup):
     #ndp marker:
@@ -45,17 +39,17 @@ class PropertiesContainer(bpy.types.PropertyGroup):
         items = prim_types,
         name = "Type")
     #divisions are also used as segments and rings for sphere, vertices for circle, etc
-    divisions_x : bpy.props.IntProperty(default=0, min=0, soft_max=100, update=_set_real_dirty)
-    divisions_y : bpy.props.IntProperty(default=0, min=0, soft_max=100, update=_set_real_dirty)
-    divisions_z : bpy.props.IntProperty(default=0, min=0, soft_max=100, update=_set_real_dirty)
+    divisions_x : bpy.props.IntProperty(default=0, min=0, soft_max=100)
+    divisions_y : bpy.props.IntProperty(default=0, min=0, soft_max=100)
+    divisions_z : bpy.props.IntProperty(default=0, min=0, soft_max=100)
     #axis_based_size
-    size_x : bpy.props.FloatProperty(default=1, update=_set_dirty)
-    size_y : bpy.props.FloatProperty(default=1, update=_set_dirty)
-    size_z : bpy.props.FloatProperty(default=1, update=_set_dirty)
+    size_x : bpy.props.FloatProperty(default=1)
+    size_y : bpy.props.FloatProperty(default=1)
+    size_z : bpy.props.FloatProperty(default=1)
     #(radius), (cone's first radius), (torus's first param):
-    radius_a : bpy.props.FloatProperty(default=1, update=_set_dirty)
+    radius_a : bpy.props.FloatProperty(default=1)
     #(cone's second radius), (torus's second param):
-    radius_b : bpy.props.FloatProperty(default=1, update=_set_dirty)
+    radius_b : bpy.props.FloatProperty(default=1)
     #fill type for caps on circle, cylinder, cone
     fill_type : bpy.props.EnumProperty(
         items = [
@@ -63,8 +57,7 @@ class PropertiesContainer(bpy.types.PropertyGroup):
             ('TRIANGLE_FAN', "Triangle Fan", "Use Triangle Fans"),
             ('NOTHING', "Nothing", "Don't fill at all."),
             ],
-        name = "Caps Fill Type",
-        update=_set_dirty)
+        name = "Caps Fill Type")
     # # pivot(relative):
     # pivot_x : bpy.props.FloatProperty(default=.5, min=0, max=1)
     # pivot_y : bpy.props.FloatProperty(default=.5, min=0, max=1)
@@ -72,16 +65,11 @@ class PropertiesContainer(bpy.types.PropertyGroup):
     
     calculate_uvs : bpy.props.BoolProperty(
         name="Calculate UVs",
-        default=True,
-        update=_set_dirty)
+        default=True)
 
     size_policy : bpy.props.EnumProperty(
         items = _init_size_policy,
-        name = "Size Policy",
-        update=_set_dirty)
-
-    is_dirty : bpy.props.BoolProperty(default=True)
-    is_divisions_dirty : bpy.props.BoolProperty(default=False)
+        name = "Size Policy")
     
     def _is_radius_based(self):
         result = (self.prim_type == PrimType.Circle.name.upper())

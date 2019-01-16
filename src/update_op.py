@@ -30,10 +30,6 @@ class OpUpdateGeometry(bpy.types.Operator):
             raise "Prim Name not supplied or not supported: {}".format(str(prim_name))
 
         obj = context.object
-        if not obj.non_destructive.is_dirty:
-            return {'CANCELLED'}
-        
-        obj.non_destructive.is_dirty = False
 
         update_func[prim_name.upper()](self, context, obj)
         return {'FINISHED'}

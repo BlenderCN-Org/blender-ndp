@@ -24,20 +24,12 @@ def _set_values(props_from, props_to):
         val = getattr(props_from, cp_name)
         setattr(props_to, cp_name, val)
 
-# def _display_options_timer = 0
-# def _revert_display_options():
-#     _display_options_timer -= time.
-#     if _display_options_timer
-
 class _BaseOpEditPrim(bpy.types.Operator):
     bl_icon = ""
     prim_name = ""
     bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
     # mesh_update_func = lambda self, context, obj: print(
     #         "Class '{}' was not setup-ed properly!".format(str(type(self))))
-
-    _cached_show_wire = False
-    _cached_show_all_edges = False
 
     @classmethod
     def poll(cls, context):
@@ -54,19 +46,7 @@ class _BaseOpEditPrim(bpy.types.Operator):
     def execute(self, context):
         self._on_executing(context)
         obj = context.object
-        ndp_props = obj.non_destructive
-
-        if ndp_props.is_divisions_dirty:
-            ndp_props.is_divisions_dirty = False
-            obj.show_wire = True
-            obj.show_all_edges = True
-            print("GRID")
-        else:
-            obj.show_wire = self._cached_show_wire
-            obj.show_all_edges = self._cached_show_all_edges
-            print("RESTORE")
-
-        _set_values(self.props, ndp_props)
+        _set_values(self.props, obj.non_destructive)
 
         bpy.ops.nondestructive_prims.update_geometry()
         return {'FINISHED'}
@@ -79,10 +59,6 @@ class _BaseOpEditPrim(bpy.types.Operator):
 
     def invoke(self, context, event):
         obj = context.object
-        self._cached_obj = obj
-        self._cached_show_all_edges = obj.show_all_edges
-        self._cached_show_wire = obj.show_wire
-
         _set_values(obj.non_destructive, self.props)
 
         obj.show_wire = True

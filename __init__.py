@@ -46,6 +46,9 @@ classes = [
     SubmenuNonDestructive,
 ]
 
+from .src.utils_op import CLASSES as src_utils_op_CLASSES
+classes.extend(src_utils_op_CLASSES)
+
 from .src.add_op import CLASSES as src_op_add_CLASSES
 classes.extend(src_op_add_CLASSES)
 
