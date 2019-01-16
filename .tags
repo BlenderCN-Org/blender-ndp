@@ -1,0 +1,134 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/3d01d993/
+0	.vscode\\launch.json	/^                "run",$/;"	s	array:configurations.4.args
+0	.vscode\\launch.json	/^                "runserver",$/;"	s	array:configurations.3.args
+0	.vscode\\launch.json	/^        {$/;"	o	array:configurations
+1	.vscode\\launch.json	/^                "--no-debugger",$/;"	s	array:configurations.4.args
+1	.vscode\\launch.json	/^                "--noreload",$/;"	s	array:configurations.3.args
+1	.vscode\\launch.json	/^        {$/;"	o	array:configurations
+2	.vscode\\launch.json	/^                "--no-reload"$/;"	s	array:configurations.4.args
+2	.vscode\\launch.json	/^                "--nothreading"$/;"	s	array:configurations.3.args
+2	.vscode\\launch.json	/^        {$/;"	o	array:configurations
+3	.vscode\\launch.json	/^        {$/;"	o	array:configurations
+4	.vscode\\launch.json	/^        {$/;"	o	array:configurations
+5	.vscode\\launch.json	/^        {$/;"	o	array:configurations
+Box	src\\op\\add.py	/^    Box=2$/;"	v	class:PrimType
+CLASSES	src\\op\\add.py	/^CLASSES = [$/;"	v
+Circle	src\\op\\add.py	/^    Circle=3$/;"	v	class:PrimType
+Cone	src\\op\\add.py	/^    Cone=7$/;"	v	class:PrimType
+CustomProperty	src\\op\\add.py	/^class CustomProperty(Enum):$/;"	c
+Cylinder	src\\op\\add.py	/^    Cylinder=6$/;"	v	class:PrimType
+FLASK_APP	.vscode\\launch.json	/^                "FLASK_APP": "app.py"$/;"	s	object:configurations.4.env
+IcoSphere	src\\op\\add.py	/^    IcoSphere=5$/;"	v	class:PrimType
+Name	src\\op\\add.py	/^def Name(name:str):$/;"	f
+OpCreateBox	src\\op\\add.py	/^class OpCreateBox(_BaseOpCreatePrim):$/;"	c
+OpCreateCircle	src\\op\\add.py	/^class OpCreateCircle(_BaseOpCreatePrim):$/;"	c
+OpCreateCone	src\\op\\add.py	/^class OpCreateCone(_BaseOpCreatePrim):$/;"	c
+OpCreateCylinder	src\\op\\add.py	/^class OpCreateCylinder(_BaseOpCreatePrim):$/;"	c
+OpCreateIcoSphere	src\\op\\add.py	/^class OpCreateIcoSphere(_BaseOpCreatePrim):$/;"	c
+OpCreatePlane	src\\op\\add.py	/^class OpCreatePlane(_BaseOpCreatePrim):$/;"	c
+OpCreateTorus	src\\op\\add.py	/^class OpCreateTorus(_BaseOpCreatePrim):$/;"	c
+OpCreateUvSphere	src\\op\\add.py	/^class OpCreateUvSphere(_BaseOpCreatePrim):$/;"	c
+OpHelloWorld	src\\test.py	/^class OpHelloWorld(bpy.types.Operator):$/;"	c
+Plane	src\\op\\add.py	/^    Plane=1$/;"	v	class:PrimType
+PrimType	src\\op\\add.py	/^class PrimType(Enum):$/;"	c
+SubmenuNonDestructive	src\\ui\\extend\\add.py	/^class SubmenuNonDestructive(bpy.types.Menu):$/;"	c
+Torus	src\\op\\add.py	/^    Torus=8$/;"	v	class:PrimType
+UvSphere	src\\op\\add.py	/^    UvSphere=4$/;"	v	class:PrimType
+_BaseOpCreatePrim	src\\op\\add.py	/^class _BaseOpCreatePrim(bpy.types.Operator):$/;"	c
+__nameProperly	src\\op\\add.py	/^def __nameProperly(cls):$/;"	f
+_extend_menu_add	__init__.py	/^def _extend_menu_add(is_registering):$/;"	f
+_method_extend_menu	__init__.py	/^def _method_extend_menu(menu, is_registering):$/;"	f
+args	.vscode\\launch.json	/^            "args": [$/;"	a	object:configurations.3
+args	.vscode\\launch.json	/^            "args": [$/;"	a	object:configurations.4
+bl_icon	src\\op\\add.py	/^    bl_icon = ""$/;"	v	class:_BaseOpCreatePrim
+bl_icon	src\\op\\add.py	/^    bl_icon = 'MESH_CUBE'$/;"	v	class:OpCreateBox
+bl_icon	src\\test.py	/^    bl_icon = 'PLUGIN'$/;"	v	class:OpHelloWorld
+bl_icon	src\\ui\\extend\\add.py	/^    bl_icon = 'OUTLINER_OB_MESH'$/;"	v	class:SubmenuNonDestructive
+bl_idname	src\\test.py	/^    bl_idname="nondestructive_pcrims.hello_world"$/;"	v	class:OpHelloWorld
+bl_idname	src\\ui\\extend\\add.py	/^    bl_idname = "ADD_MT_non_destructive"$/;"	v	class:SubmenuNonDestructive
+bl_info	__init__.py	/^bl_info = {$/;"	v
+bl_label	src\\test.py	/^    bl_label="HELLO_WORLD"$/;"	v	class:OpHelloWorld
+bl_label	src\\ui\\extend\\add.py	/^    bl_label = "Non-Destructive"$/;"	v	class:SubmenuNonDestructive
+bl_options	src\\op\\add.py	/^    bl_options = {'REGISTER', 'UNDO'}$/;"	v	class:_BaseOpCreatePrim
+classes	__init__.py	/^classes = [$/;"	v
+configurations	.vscode\\launch.json	/^    "configurations": [$/;"	a
+console	.vscode\\launch.json	/^            "console": "externalTerminal"$/;"	s	object:configurations.5
+console	.vscode\\launch.json	/^            "console": "integratedTerminal"$/;"	s	object:configurations.0
+console	.vscode\\launch.json	/^            "console": "integratedTerminal"$/;"	s	object:configurations.2
+console	.vscode\\launch.json	/^            "console": "integratedTerminal",$/;"	s	object:configurations.3
+defaultPoll	src\\op\\add.py	/^def defaultPoll(context):$/;"	f
+default_ndp_pivot	src\\op\\add.py	/^default_ndp_pivot=[.5, .5, .5]$/;"	v
+django	.vscode\\launch.json	/^            "django": true$/;"	b	object:configurations.3
+draw	src\\ui\\extend\\add.py	/^    def draw(self, context):$/;"	m	class:SubmenuNonDestructive
+env	.vscode\\launch.json	/^            "env": {$/;"	o	object:configurations.4
+execute	src\\op\\add.py	/^    def execute(self, context):$/;"	m	class:OpCreateBox
+execute	src\\op\\add.py	/^    def execute(self, context):$/;"	m	class:OpCreateCircle
+execute	src\\op\\add.py	/^    def execute(self, context):$/;"	m	class:OpCreateCone
+execute	src\\op\\add.py	/^    def execute(self, context):$/;"	m	class:OpCreateCylinder
+execute	src\\op\\add.py	/^    def execute(self, context):$/;"	m	class:OpCreateIcoSphere
+execute	src\\op\\add.py	/^    def execute(self, context):$/;"	m	class:OpCreatePlane
+execute	src\\op\\add.py	/^    def execute(self, context):$/;"	m	class:OpCreateTorus
+execute	src\\op\\add.py	/^    def execute(self, context):$/;"	m	class:OpCreateUvSphere
+execute	src\\test.py	/^    def execute(self, context):$/;"	m	class:OpHelloWorld
+extend_menu	src\\test.py	/^    extend_menu = None$/;"	v	class:OpHelloWorld
+extend_menus	__init__.py	/^def extend_menus(is_registering):$/;"	f
+host	.vscode\\launch.json	/^            "host": "localhost"$/;"	s	object:configurations.1
+invoke	src\\op\\add.py	/^    def invoke(self, context, event):$/;"	m	class:_BaseOpCreatePrim
+jinja	.vscode\\launch.json	/^            "jinja": true$/;"	b	object:configurations.4
+labelText	src\\op\\add.py	/^labelText = "Add {} (Non-Destructive)"$/;"	v
+menu	src\\ui\\utils.py	/^        menu = lambda menu, context: menu.layout.menu(cls.bl_idname, icon=cls.bl_icon)$/;"	f	function:menu_menu	file:
+menu_menu	src\\ui\\utils.py	/^def menu_menu(cls, method):$/;"	f
+menu_operator	src\\ui\\utils.py	/^def menu_operator(cls, method):$/;"	f
+module	.vscode\\launch.json	/^            "module": "enter-your-module-name-here",$/;"	s	object:configurations.2
+module	.vscode\\launch.json	/^            "module": "flask",$/;"	s	object:configurations.4
+name	.vscode\\launch.json	/^            "name": "Python: Attach",$/;"	s	object:configurations.1
+name	.vscode\\launch.json	/^            "name": "Python: Current File (External Terminal)",$/;"	s	object:configurations.5
+name	.vscode\\launch.json	/^            "name": "Python: Current File (Integrated Terminal)",$/;"	s	object:configurations.0
+name	.vscode\\launch.json	/^            "name": "Python: Django",$/;"	s	object:configurations.3
+name	.vscode\\launch.json	/^            "name": "Python: Flask",$/;"	s	object:configurations.4
+name	.vscode\\launch.json	/^            "name": "Python: Module",$/;"	s	object:configurations.2
+ndp_pivot	src\\op\\add.py	/^    ndp_pivot=6$/;"	v	class:CustomProperty
+ndp_prim_type	src\\op\\add.py	/^    ndp_prim_type=1$/;"	v	class:CustomProperty
+ndp_sides_x	src\\op\\add.py	/^    ndp_sides_x=3$/;"	v	class:CustomProperty
+ndp_sides_y	src\\op\\add.py	/^    ndp_sides_y=4$/;"	v	class:CustomProperty
+ndp_sides_z	src\\op\\add.py	/^    ndp_sides_z=5$/;"	v	class:CustomProperty
+ndp_size	src\\op\\add.py	/^    ndp_size=2$/;"	v	class:CustomProperty
+operator	src\\ui\\utils.py	/^        operator = lambda menu, context: menu.layout.operator(cls.bl_idname, text="something som/;"	f	function:menu_operator	file:
+poll	src\\op\\add.py	/^    def poll(cls, context):$/;"	m	class:_BaseOpCreatePrim
+port	.vscode\\launch.json	/^            "port": 5678,$/;"	n	object:configurations.1
+primName	src\\op\\add.py	/^    primName = "Box"$/;"	v	class:OpCreateBox
+primName	src\\op\\add.py	/^    primName = "Circle"$/;"	v	class:OpCreateCircle
+primName	src\\op\\add.py	/^    primName = "Cone"$/;"	v	class:OpCreateCone
+primName	src\\op\\add.py	/^    primName = "Cylinder"$/;"	v	class:OpCreateCylinder
+primName	src\\op\\add.py	/^    primName = "Ico Sphere"$/;"	v	class:OpCreateIcoSphere
+primName	src\\op\\add.py	/^    primName = "Plane"$/;"	v	class:OpCreatePlane
+primName	src\\op\\add.py	/^    primName = "Torus"$/;"	v	class:OpCreateTorus
+primName	src\\op\\add.py	/^    primName = "UNKNOWN"$/;"	v	class:_BaseOpCreatePrim
+primName	src\\op\\add.py	/^    primName = "Uv Sphere"$/;"	v	class:OpCreateUvSphere
+program	.vscode\\launch.json	/^            "program": "${file}",$/;"	s	object:configurations.0
+program	.vscode\\launch.json	/^            "program": "${file}",$/;"	s	object:configurations.5
+program	.vscode\\launch.json	/^            "program": "${workspaceFolder}\/manage.py",$/;"	s	object:configurations.3
+project_opened	.vscode\\.ropeproject\\config.py	/^def project_opened(project):$/;"	f
+register	__init__.py	/^def register():$/;"	f
+request	.vscode\\launch.json	/^            "request": "attach",$/;"	s	object:configurations.1
+request	.vscode\\launch.json	/^            "request": "launch",$/;"	s	object:configurations.0
+request	.vscode\\launch.json	/^            "request": "launch",$/;"	s	object:configurations.2
+request	.vscode\\launch.json	/^            "request": "launch",$/;"	s	object:configurations.3
+request	.vscode\\launch.json	/^            "request": "launch",$/;"	s	object:configurations.4
+request	.vscode\\launch.json	/^            "request": "launch",$/;"	s	object:configurations.5
+separator	__init__.py	/^separator = lambda menu, context: menu.layout.separator()$/;"	f
+set_prefs	.vscode\\.ropeproject\\config.py	/^def set_prefs(prefs):$/;"	f
+src_op_add_CLASSES	__init__.py	/^from .src.op.add import CLASSES as src_op_add_CLASSES$/;"	x
+type	.vscode\\launch.json	/^            "type": "python",$/;"	s	object:configurations.0
+type	.vscode\\launch.json	/^            "type": "python",$/;"	s	object:configurations.1
+type	.vscode\\launch.json	/^            "type": "python",$/;"	s	object:configurations.2
+type	.vscode\\launch.json	/^            "type": "python",$/;"	s	object:configurations.3
+type	.vscode\\launch.json	/^            "type": "python",$/;"	s	object:configurations.4
+type	.vscode\\launch.json	/^            "type": "python",$/;"	s	object:configurations.5
+unregister	__init__.py	/^def unregister():$/;"	f

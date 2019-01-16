@@ -1,0 +1,91 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/3d01d993/
+Box	..\\src\\op\\add.py	/^    Box=2$/;"	kind:variable	line:10
+CLASSES	..\\src\\op\\add.py	/^CLASSES = [$/;"	kind:variable	line:214
+Circle	..\\src\\op\\add.py	/^    Circle=3$/;"	kind:variable	line:11
+Cone	..\\src\\op\\add.py	/^    Cone=7$/;"	kind:variable	line:15
+CustomProperty	..\\src\\op\\add.py	/^class CustomProperty(Enum):$/;"	kind:class	line:18
+Cylinder	..\\src\\op\\add.py	/^    Cylinder=6$/;"	kind:variable	line:14
+IcoSphere	..\\src\\op\\add.py	/^    IcoSphere=5$/;"	kind:variable	line:13
+Name	..\\src\\op\\add.py	/^def Name(name:str):$/;"	kind:function	line:31
+OpCreateBox	..\\src\\op\\add.py	/^class OpCreateBox(_BaseOpCreatePrim):$/;"	kind:class	line:110
+OpCreateCircle	..\\src\\op\\add.py	/^class OpCreateCircle(_BaseOpCreatePrim):$/;"	kind:class	line:167
+OpCreateCone	..\\src\\op\\add.py	/^class OpCreateCone(_BaseOpCreatePrim):$/;"	kind:class	line:199
+OpCreateCylinder	..\\src\\op\\add.py	/^class OpCreateCylinder(_BaseOpCreatePrim):$/;"	kind:class	line:191
+OpCreateIcoSphere	..\\src\\op\\add.py	/^class OpCreateIcoSphere(_BaseOpCreatePrim):$/;"	kind:class	line:183
+OpCreatePlane	..\\src\\op\\add.py	/^class OpCreatePlane(_BaseOpCreatePrim):$/;"	kind:class	line:57
+OpCreateTorus	..\\src\\op\\add.py	/^class OpCreateTorus(_BaseOpCreatePrim):$/;"	kind:class	line:207
+OpCreateUvSphere	..\\src\\op\\add.py	/^class OpCreateUvSphere(_BaseOpCreatePrim):$/;"	kind:class	line:175
+OpHelloWorld	..\\src\\test.py	/^class OpHelloWorld(bpy.types.Operator):$/;"	kind:class	line:3
+Plane	..\\src\\op\\add.py	/^    Plane=1$/;"	kind:variable	line:9
+PrimType	..\\src\\op\\add.py	/^class PrimType(Enum):$/;"	kind:class	line:8
+SubmenuNonDestructive	..\\src\\ui\\extend\\add.py	/^class SubmenuNonDestructive(bpy.types.Menu):$/;"	kind:class	line:4
+Torus	..\\src\\op\\add.py	/^    Torus=8$/;"	kind:variable	line:16
+UvSphere	..\\src\\op\\add.py	/^    UvSphere=4$/;"	kind:variable	line:12
+_BaseOpCreatePrim	..\\src\\op\\add.py	/^class _BaseOpCreatePrim(bpy.types.Operator):$/;"	kind:class	line:44
+__init__.py	..\\__init__.py	1;"	kind:file	line:1
+__nameProperly	..\\src\\op\\add.py	/^def __nameProperly(cls):$/;"	kind:function	line:34
+_extend_menu_add	..\\__init__.py	/^def _extend_menu_add(is_registering):$/;"	kind:function	line:102
+_method_extend_menu	..\\__init__.py	/^def _method_extend_menu(menu, is_registering):$/;"	kind:function	line:120
+add.py	..\\src\\op\\add.py	1;"	kind:file	line:1
+add.py	..\\src\\ui\\extend\\add.py	1;"	kind:file	line:1
+bl_icon	..\\src\\op\\add.py	/^    bl_icon = ""$/;"	kind:variable	line:45
+bl_icon	..\\src\\op\\add.py	/^    bl_icon = 'MESH_CUBE'$/;"	kind:variable	line:112
+bl_icon	..\\src\\test.py	/^    bl_icon = 'PLUGIN'$/;"	kind:variable	line:4
+bl_icon	..\\src\\ui\\extend\\add.py	/^    bl_icon = 'OUTLINER_OB_MESH'$/;"	kind:variable	line:7
+bl_idname	..\\src\\test.py	/^    bl_idname="nondestructive_pcrims.hello_world"$/;"	kind:variable	line:5
+bl_idname	..\\src\\ui\\extend\\add.py	/^    bl_idname = "ADD_MT_non_destructive"$/;"	kind:variable	line:5
+bl_info	..\\__init__.py	/^bl_info = {$/;"	kind:variable	line:14
+bl_label	..\\src\\test.py	/^    bl_label="HELLO_WORLD"$/;"	kind:variable	line:6
+bl_label	..\\src\\ui\\extend\\add.py	/^    bl_label = "Non-Destructive"$/;"	kind:variable	line:6
+bl_options	..\\src\\op\\add.py	/^    bl_options = {'REGISTER', 'UNDO'}$/;"	kind:variable	line:47
+classes	..\\__init__.py	/^classes = [$/;"	kind:variable	line:31
+defaultPoll	..\\src\\op\\add.py	/^def defaultPoll(context):$/;"	kind:function	line:28
+default_ndp_pivot	..\\src\\op\\add.py	/^default_ndp_pivot=[.5, .5, .5]$/;"	kind:variable	line:26
+draw	..\\src\\ui\\extend\\add.py	/^    def draw(self, context):$/;"	kind:member	line:9
+execute	..\\src\\op\\add.py	/^    def execute(self, context):$/;"	kind:member	line:114
+execute	..\\src\\op\\add.py	/^    def execute(self, context):$/;"	kind:member	line:170
+execute	..\\src\\op\\add.py	/^    def execute(self, context):$/;"	kind:member	line:178
+execute	..\\src\\op\\add.py	/^    def execute(self, context):$/;"	kind:member	line:186
+execute	..\\src\\op\\add.py	/^    def execute(self, context):$/;"	kind:member	line:194
+execute	..\\src\\op\\add.py	/^    def execute(self, context):$/;"	kind:member	line:202
+execute	..\\src\\op\\add.py	/^    def execute(self, context):$/;"	kind:member	line:210
+execute	..\\src\\op\\add.py	/^    def execute(self, context):$/;"	kind:member	line:60
+execute	..\\src\\test.py	/^    def execute(self, context):$/;"	kind:member	line:10
+extend_menu	..\\src\\test.py	/^    extend_menu = None$/;"	kind:variable	line:8
+extend_menus	..\\__init__.py	/^def extend_menus(is_registering):$/;"	kind:function	line:99
+invoke	..\\src\\op\\add.py	/^    def invoke(self, context, event):$/;"	kind:member	line:53
+labelText	..\\src\\op\\add.py	/^labelText = "Add {} (Non-Destructive)"$/;"	kind:variable	line:6
+menu	..\\src\\ui\\utils.py	/^        menu = lambda menu, context: menu.layout.menu(cls.bl_idname, icon=cls.bl_icon)$/;"	kind:function	line:3
+menu_menu	..\\src\\ui\\utils.py	/^def menu_menu(cls, method):$/;"	kind:function	line:1
+menu_operator	..\\src\\ui\\utils.py	/^def menu_operator(cls, method):$/;"	kind:function	line:9
+ndp_pivot	..\\src\\op\\add.py	/^    ndp_pivot=6$/;"	kind:variable	line:24
+ndp_prim_type	..\\src\\op\\add.py	/^    ndp_prim_type=1$/;"	kind:variable	line:19
+ndp_sides_x	..\\src\\op\\add.py	/^    ndp_sides_x=3$/;"	kind:variable	line:21
+ndp_sides_y	..\\src\\op\\add.py	/^    ndp_sides_y=4$/;"	kind:variable	line:22
+ndp_sides_z	..\\src\\op\\add.py	/^    ndp_sides_z=5$/;"	kind:variable	line:23
+ndp_size	..\\src\\op\\add.py	/^    ndp_size=2$/;"	kind:variable	line:20
+operator	..\\src\\ui\\utils.py	/^        operator = lambda menu, context: menu.layout.operator(cls.bl_idname, text="something som/;"	kind:function	line:11
+poll	..\\src\\op\\add.py	/^    def poll(cls, context):$/;"	kind:member	line:50
+primName	..\\src\\op\\add.py	/^    primName = "Box"$/;"	kind:variable	line:111
+primName	..\\src\\op\\add.py	/^    primName = "Circle"$/;"	kind:variable	line:168
+primName	..\\src\\op\\add.py	/^    primName = "Cone"$/;"	kind:variable	line:200
+primName	..\\src\\op\\add.py	/^    primName = "Cylinder"$/;"	kind:variable	line:192
+primName	..\\src\\op\\add.py	/^    primName = "Ico Sphere"$/;"	kind:variable	line:184
+primName	..\\src\\op\\add.py	/^    primName = "Plane"$/;"	kind:variable	line:58
+primName	..\\src\\op\\add.py	/^    primName = "Torus"$/;"	kind:variable	line:208
+primName	..\\src\\op\\add.py	/^    primName = "UNKNOWN"$/;"	kind:variable	line:46
+primName	..\\src\\op\\add.py	/^    primName = "Uv Sphere"$/;"	kind:variable	line:176
+register	..\\__init__.py	/^def register():$/;"	kind:function	line:40
+separator	..\\__init__.py	/^separator = lambda menu, context: menu.layout.separator()$/;"	kind:function	line:95
+src_op_add_CLASSES	..\\__init__.py	/^from .src.op.add import CLASSES as src_op_add_CLASSES$/;"	kind:unknown	line:37
+test.py	..\\src\\test.py	1;"	kind:file	line:1
+ui.py	..\\src\\utils\\ui.py	1;"	kind:file	line:1
+unregister	..\\__init__.py	/^def unregister():$/;"	kind:function	line:72
+utils.py	..\\src\\op\\add\\utils.py	1;"	kind:file	line:1
+utils.py	..\\src\\ui\\utils.py	1;"	kind:file	line:1
