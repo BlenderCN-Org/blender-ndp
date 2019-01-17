@@ -30,9 +30,6 @@ def _select_edge_ring(all_edges, axis):
     return result
 
 def _recreate_mesh(context, obj, func):
-    bpy.ops.object.mode_set(mode='OBJECT', toggle=False)
-    context.scene.update()
-
     ndp_props = obj.data.ndp_props
     divisions = (
         ndp_props.divisions_x,
