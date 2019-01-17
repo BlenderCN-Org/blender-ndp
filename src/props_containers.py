@@ -49,7 +49,7 @@ class PropertiesContainer(bpy.types.PropertyGroup):
     #fill type for caps on circle, cylinder, cone
     fill_type : bpy.props.EnumProperty(
         items = [
-            ('NGON', "Ngon", "Use ngon."),
+            ('NGONS', "Ngon", "Use ngon."),
             ('TRIANGLE_FAN', "Triangle Fan", "Use Triangle Fans"),
             ('NOTHING', "Nothing", "Don't fill at all."),
             ],
@@ -67,6 +67,9 @@ class PropertiesContainer(bpy.types.PropertyGroup):
         items = _init_size_policy,
         name = "Size Policy")
     
+    def has_size_policy(self):
+        return self._is_radius_based()
+
     def _is_radius_based(self):
         result = (self.prim_type == PrimType.Circle.name.upper())
         result |= (self.prim_type == PrimType.UvSphere.name.upper())

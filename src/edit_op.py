@@ -136,6 +136,9 @@ class _BaseOpEditPrim(bpy.types.Operator):
     def draw(self, context):
         layout = self.layout
 
+        if self.props.has_size_policy():
+            layout.prop(self.props, "size_policy")
+
         self._on_draw(context, layout)
 
         row = layout.row()
@@ -212,7 +215,9 @@ class OpEditCircle(_BaseOpEditPrim):
         elif props.size_policy == 'EXTERIOR_INTERIOR':
             row = layout.row()
             row.label("Radius")
-            row.props(self, "radius_a")
+            row.prop(self, "radius_a")
+        
+        layout.prop(props, "fill_type")
         
 @__setupProperly
 class OpEditUvSphere(_BaseOpEditPrim):
