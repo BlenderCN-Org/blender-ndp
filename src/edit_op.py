@@ -1,5 +1,5 @@
 import bpy
-from . props_containers import PropertiesContainer
+from . props_containers import PropertiesContainer, get_properties_cache
 from . enums import CustomProperty, PrimType
 import time
 
@@ -48,6 +48,9 @@ class _BaseOpEditPrim(bpy.types.Operator):
         obj = context.object
         mesh = obj.data
         _set_values(self.props, mesh.ndp_props)
+        prim_name = self.props.prim_type
+        cache = getattr(get_properties_cache(context), prim_name.lower())
+        _set_values(self.props, cache)
 
         bpy.ops.ndp.update_geometry()
         return {'FINISHED'}

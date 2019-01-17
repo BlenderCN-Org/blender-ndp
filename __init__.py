@@ -23,8 +23,6 @@ bl_info = {
 
 import bpy
 
-# from . utils.ui import extend_menus
-
 from . src.test import OpHelloWorld
 from . src.add_ui import SubmenuAdd
 from . src.props_containers import PropertiesContainer, InitialPropertiesCacheContainer
@@ -33,15 +31,12 @@ from . src.update_op import OpUpdateGeometry
 
 from . src.enums import prim_props, CustomProperty, PrimType
 
-from . src.props_ui import PrimObjectPanel
-
 
 classes = [
     OpUpdateGeometry,
     OpHelloWorld,
     PropertiesContainer,
     InitialPropertiesCacheContainer,
-    PrimObjectPanel,
 
     SubmenuAdd,
 ]
@@ -64,20 +59,15 @@ def register():
     # global keymaps, icons
 
     from bpy.utils import register_class
-    # # from utils.registration import register_icons, register_keymaps, get_tools, get_pie_menus
     for c in classes:
         register_class(c)
 
     bpy.types.Scene.ndp_cache_initial = bpy.props.PointerProperty(
         type = InitialPropertiesCacheContainer)
-    # scene = bpy.context.scene
-    # print("HEY!")
-    # scene.ndp_cache_initial
 
     bpy.types.Mesh.ndp_props = bpy.props.PointerProperty(
         type = PropertiesContainer,
-        name = "Non Destructive Prim Props")
-
+        name = "NDP Props")
     
     register_events()
 

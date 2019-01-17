@@ -4,88 +4,221 @@
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
-!_TAG_PROGRAM_VERSION	0.0.0	/3d01d993/
-Box	..\\src\\op\\add.py	/^    Box=2$/;"	kind:variable	line:10
-CLASSES	..\\src\\op\\add.py	/^CLASSES = [$/;"	kind:variable	line:214
-Circle	..\\src\\op\\add.py	/^    Circle=3$/;"	kind:variable	line:11
-Cone	..\\src\\op\\add.py	/^    Cone=7$/;"	kind:variable	line:15
-CustomProperty	..\\src\\op\\add.py	/^class CustomProperty(Enum):$/;"	kind:class	line:18
-Cylinder	..\\src\\op\\add.py	/^    Cylinder=6$/;"	kind:variable	line:14
-IcoSphere	..\\src\\op\\add.py	/^    IcoSphere=5$/;"	kind:variable	line:13
-Name	..\\src\\op\\add.py	/^def Name(name:str):$/;"	kind:function	line:31
-OpCreateBox	..\\src\\op\\add.py	/^class OpCreateBox(_BaseOpCreatePrim):$/;"	kind:class	line:110
-OpCreateCircle	..\\src\\op\\add.py	/^class OpCreateCircle(_BaseOpCreatePrim):$/;"	kind:class	line:167
-OpCreateCone	..\\src\\op\\add.py	/^class OpCreateCone(_BaseOpCreatePrim):$/;"	kind:class	line:199
-OpCreateCylinder	..\\src\\op\\add.py	/^class OpCreateCylinder(_BaseOpCreatePrim):$/;"	kind:class	line:191
-OpCreateIcoSphere	..\\src\\op\\add.py	/^class OpCreateIcoSphere(_BaseOpCreatePrim):$/;"	kind:class	line:183
-OpCreatePlane	..\\src\\op\\add.py	/^class OpCreatePlane(_BaseOpCreatePrim):$/;"	kind:class	line:57
-OpCreateTorus	..\\src\\op\\add.py	/^class OpCreateTorus(_BaseOpCreatePrim):$/;"	kind:class	line:207
-OpCreateUvSphere	..\\src\\op\\add.py	/^class OpCreateUvSphere(_BaseOpCreatePrim):$/;"	kind:class	line:175
+!_TAG_PROGRAM_VERSION	0.0.0	/a20bb99d/
+Box	..\\src\\enums.py	/^    Box = 2$/;"	kind:variable	line:8
+CLASSES	..\\src\\add_op.py	/^CLASSES = [$/;"	kind:variable	line:103
+CLASSES	..\\src\\edit_op.py	/^CLASSES = [$/;"	kind:variable	line:139
+CLASSES	..\\src\\event_op.py	/^CLASSES = [$/;"	kind:variable	line:145
+CLASSES	..\\src\\utils_op.py	/^CLASSES = [$/;"	kind:variable	line:103
+Circle	..\\src\\enums.py	/^    Circle = 4$/;"	kind:variable	line:9
+Cone	..\\src\\enums.py	/^    Cone = 64$/;"	kind:variable	line:13
+CustomProperty	..\\src\\enums.py	/^class CustomProperty(Enum):$/;"	kind:class	line:16
+Cylinder	..\\src\\enums.py	/^    Cylinder = 32$/;"	kind:variable	line:12
+EventContextReady	..\\src\\event_op.py	/^class EventContextReady(bpy.types.Operator):$/;"	kind:class	line:62
+EventEditMode	..\\src\\event_op.py	/^class EventEditMode(bpy.types.Operator):$/;"	kind:class	line:94
+IcoSphere	..\\src\\enums.py	/^    IcoSphere = 16$/;"	kind:variable	line:11
+InitialPropertiesCacheContainer	..\\src\\props_containers.py	/^class InitialPropertiesCacheContainer(bpy.types.PropertyGroup):$/;"	kind:class	line:85
+MenuConvert	..\\src\\utils_op.py	/^class MenuConvert(bpy.types.Menu):$/;"	kind:class	line:92
+OpConvert	..\\src\\utils_op.py	/^class OpConvert(bpy.types.Operator):$/;"	kind:class	line:38
+OpConvertNdp	..\\src\\utils_op.py	/^class OpConvertNdp(bpy.types.Operator):$/;"	kind:class	line:65
+OpCreateBox	..\\src\\add_op.py	/^class OpCreateBox(_BaseOpCreatePrim):$/;"	kind:class	line:75
+OpCreateCircle	..\\src\\add_op.py	/^class OpCreateCircle(_BaseOpCreatePrim):$/;"	kind:class	line:80
+OpCreateCone	..\\src\\add_op.py	/^class OpCreateCone(_BaseOpCreatePrim):$/;"	kind:class	line:96
+OpCreateCylinder	..\\src\\add_op.py	/^class OpCreateCylinder(_BaseOpCreatePrim):$/;"	kind:class	line:92
+OpCreateIcoSphere	..\\src\\add_op.py	/^class OpCreateIcoSphere(_BaseOpCreatePrim):$/;"	kind:class	line:88
+OpCreatePlane	..\\src\\add_op.py	/^class OpCreatePlane(_BaseOpCreatePrim):$/;"	kind:class	line:71
+OpCreateUvSphere	..\\src\\add_op.py	/^class OpCreateUvSphere(_BaseOpCreatePrim):$/;"	kind:class	line:84
+OpEditBox	..\\src\\edit_op.py	/^class OpEditBox(_BaseOpEditPrim):$/;"	kind:class	line:88
+OpEditCircle	..\\src\\edit_op.py	/^class OpEditCircle(_BaseOpEditPrim):$/;"	kind:class	line:119
+OpEditCone	..\\src\\edit_op.py	/^class OpEditCone(_BaseOpEditPrim):$/;"	kind:class	line:135
+OpEditCylinder	..\\src\\edit_op.py	/^class OpEditCylinder(_BaseOpEditPrim):$/;"	kind:class	line:131
+OpEditIcoSphere	..\\src\\edit_op.py	/^class OpEditIcoSphere(_BaseOpEditPrim):$/;"	kind:class	line:127
+OpEditPlane	..\\src\\edit_op.py	/^class OpEditPlane(_BaseOpEditPrim):$/;"	kind:class	line:84
+OpEditUvSphere	..\\src\\edit_op.py	/^class OpEditUvSphere(_BaseOpEditPrim):$/;"	kind:class	line:123
 OpHelloWorld	..\\src\\test.py	/^class OpHelloWorld(bpy.types.Operator):$/;"	kind:class	line:3
-Plane	..\\src\\op\\add.py	/^    Plane=1$/;"	kind:variable	line:9
-PrimType	..\\src\\op\\add.py	/^class PrimType(Enum):$/;"	kind:class	line:8
-SubmenuNonDestructive	..\\src\\ui\\extend\\add.py	/^class SubmenuNonDestructive(bpy.types.Menu):$/;"	kind:class	line:4
-Torus	..\\src\\op\\add.py	/^    Torus=8$/;"	kind:variable	line:16
-UvSphere	..\\src\\op\\add.py	/^    UvSphere=4$/;"	kind:variable	line:12
-_BaseOpCreatePrim	..\\src\\op\\add.py	/^class _BaseOpCreatePrim(bpy.types.Operator):$/;"	kind:class	line:44
+OpToggleWireframe	..\\src\\utils_op.py	/^class OpToggleWireframe(bpy.types.Operator):$/;"	kind:class	line:4
+OpUpdateGeometry	..\\src\\update_op.py	/^class OpUpdateGeometry(bpy.types.Operator):$/;"	kind:class	line:6
+Plane	..\\src\\enums.py	/^    Plane = 1$/;"	kind:variable	line:7
+PrimObjectPanel	..\\src\\props_ui.py	/^class PrimObjectPanel(bpy.types.Panel):$/;"	kind:class	line:5
+PrimType	..\\src\\enums.py	/^class PrimType(Enum):$/;"	kind:class	line:5
+PropertiesContainer	..\\src\\props_containers.py	/^class PropertiesContainer(bpy.types.PropertyGroup):$/;"	kind:class	line:30
+SubmenuAdd	..\\src\\add_ui.py	/^class SubmenuAdd(bpy.types.Menu):$/;"	kind:class	line:4
+Unknown	..\\src\\enums.py	/^    Unknown = 0$/;"	kind:variable	line:6
+UvSphere	..\\src\\enums.py	/^    UvSphere = 8$/;"	kind:variable	line:10
+_BaseOpCreatePrim	..\\src\\add_op.py	/^class _BaseOpCreatePrim(bpy.types.Operator):$/;"	kind:class	line:22
+_BaseOpEditPrim	..\\src\\edit_op.py	/^class _BaseOpEditPrim(bpy.types.Operator):$/;"	kind:class	line:27
+__del__	..\\src\\event_op.py	/^    def __del__(self):$/;"	kind:member	line:109
+__del__	..\\src\\event_op.py	/^    def __del__(self):$/;"	kind:member	line:78
+__init__	..\\src\\event_op.py	/^    def __init__(self):$/;"	kind:member	line:106
+__init__	..\\src\\event_op.py	/^    def __init__(self):$/;"	kind:member	line:74
 __init__.py	..\\__init__.py	1;"	kind:file	line:1
-__nameProperly	..\\src\\op\\add.py	/^def __nameProperly(cls):$/;"	kind:function	line:34
-_extend_menu_add	..\\__init__.py	/^def _extend_menu_add(is_registering):$/;"	kind:function	line:102
-_method_extend_menu	..\\__init__.py	/^def _method_extend_menu(menu, is_registering):$/;"	kind:function	line:120
-add.py	..\\src\\op\\add.py	1;"	kind:file	line:1
-add.py	..\\src\\ui\\extend\\add.py	1;"	kind:file	line:1
-bl_icon	..\\src\\op\\add.py	/^    bl_icon = ""$/;"	kind:variable	line:45
-bl_icon	..\\src\\op\\add.py	/^    bl_icon = 'MESH_CUBE'$/;"	kind:variable	line:112
+__setupProperly	..\\src\\add_op.py	/^def __setupProperly(cls):$/;"	kind:function	line:9
+__setupProperly	..\\src\\edit_op.py	/^def __setupProperly(cls):$/;"	kind:function	line:6
+_create_box	..\\src\\update_utils.py	/^def _create_box(obj:bpy.types.Object, bm:bmesh.types.BMesh,$/;"	kind:function	line:85
+_create_circle	..\\src\\update_utils.py	/^def _create_circle(obj:bpy.types.Object, bm:bmesh.types.BMesh,$/;"	kind:function	line:102
+_create_cone	..\\src\\update_utils.py	/^def _create_cone(obj:bpy.types.Object, bm:bmesh.types.BMesh,$/;"	kind:function	line:162
+_create_cylinder	..\\src\\update_utils.py	/^def _create_cylinder(obj:bpy.types.Object, bm:bmesh.types.BMesh,$/;"	kind:function	line:143
+_create_icosphere	..\\src\\update_utils.py	/^def _create_icosphere(obj:bpy.types.Object, bm:bmesh.types.BMesh,$/;"	kind:function	line:131
+_create_plane	..\\src\\update_utils.py	/^def _create_plane(obj:bpy.types.Object, bm:bmesh.types.BMesh,$/;"	kind:function	line:72
+_create_uvsphere	..\\src\\update_utils.py	/^def _create_uvsphere(obj:bpy.types.Object, bm:bmesh.types.BMesh,$/;"	kind:function	line:118
+_edge_loop_insert	..\\src\\update_utils.py	/^def _edge_loop_insert(bm, edge_ring, cuts):$/;"	kind:function	line:11
+_edge_pos	..\\src\\update_utils.py	/^def _edge_pos(edge : bmesh.types.BMEdge):$/;"	kind:function	line:5
+_extend_menu_add	..\\__init__.py	/^def _extend_menu_add(is_registering):$/;"	kind:function	line:98
+_init_prim_types	..\\src\\props_containers.py	/^def _init_prim_types():$/;"	kind:function	line:4
+_init_size_policy	..\\src\\props_containers.py	/^def _init_size_policy(container, context):$/;"	kind:function	line:17
+_is_radius_based	..\\src\\props_containers.py	/^    def _is_radius_based(self):$/;"	kind:member	line:70
+_is_torus	..\\src\\props_containers.py	/^    def _is_torus(self):$/;"	kind:member	line:79
+_load_handler	..\\src\\event_op.py	/^def _load_handler(dummy):$/;"	kind:function	line:57
+_on_executing	..\\src\\edit_op.py	/^    def _on_executing(self, context):$/;"	kind:member	line:55
+_on_invoke	..\\src\\edit_op.py	/^    def _on_invoke(self, context, event):$/;"	kind:member	line:58
+_on_invoke	..\\src\\edit_op.py	/^    def _on_invoke(self, context, event):$/;"	kind:member	line:93
+_recreate_mesh	..\\src\\update_utils.py	/^def _recreate_mesh(context, obj, func):$/;"	kind:function	line:32
+_register_events	..\\src\\event_op.py	/^def _register_events():$/;"	kind:function	line:20
+_select_edge_ring	..\\src\\update_utils.py	/^def _select_edge_ring(all_edges, axis):$/;"	kind:function	line:24
+_set_values	..\\src\\edit_op.py	/^def _set_values(props_from, props_to):$/;"	kind:function	line:17
+add_op.py	..\\src\\add_op.py	1;"	kind:file	line:1
+add_ui.py	..\\src\\add_ui.py	1;"	kind:file	line:1
+bl_context	..\\src\\props_ui.py	/^    bl_context = 'object'$/;"	kind:variable	line:10
+bl_description	..\\src\\event_op.py	/^    bl_description = "Raises exception if context is restricted"$/;"	kind:variable	line:65
+bl_description	..\\src\\event_op.py	/^    bl_description="Sends out an event about entering edit mode"$/;"	kind:variable	line:97
+bl_description	..\\src\\update_op.py	/^    bl_description = "Updates mesh geometry according to attached props"$/;"	kind:variable	line:9
+bl_description	..\\src\\utils_op.py	/^    bl_description = "Convert Non Destructive Prim to a regular mesh."$/;"	kind:variable	line:68
+bl_description	..\\src\\utils_op.py	/^    bl_description = "Convert options"$/;"	kind:variable	line:41
+bl_description	..\\src\\utils_op.py	/^    bl_description = "Turns on and off wireframe over the object."$/;"	kind:variable	line:7
+bl_icon	..\\src\\add_op.py	/^    bl_icon = ""$/;"	kind:variable	line:23
+bl_icon	..\\src\\add_op.py	/^    bl_icon = 'MESH_CUBE'$/;"	kind:variable	line:77
+bl_icon	..\\src\\add_ui.py	/^    bl_icon = 'OUTLINER_OB_MESH'$/;"	kind:variable	line:7
+bl_icon	..\\src\\edit_op.py	/^    bl_icon = ""$/;"	kind:variable	line:28
 bl_icon	..\\src\\test.py	/^    bl_icon = 'PLUGIN'$/;"	kind:variable	line:4
-bl_icon	..\\src\\ui\\extend\\add.py	/^    bl_icon = 'OUTLINER_OB_MESH'$/;"	kind:variable	line:7
-bl_idname	..\\src\\test.py	/^    bl_idname="nondestructive_pcrims.hello_world"$/;"	kind:variable	line:5
-bl_idname	..\\src\\ui\\extend\\add.py	/^    bl_idname = "ADD_MT_non_destructive"$/;"	kind:variable	line:5
+bl_idname	..\\src\\add_ui.py	/^    bl_idname = "NDP_MT_add"$/;"	kind:variable	line:5
+bl_idname	..\\src\\event_op.py	/^    bl_idname = "ndp.raise_if_context_restricted"$/;"	kind:variable	line:63
+bl_idname	..\\src\\event_op.py	/^    bl_idname="ndp.event_editmode"$/;"	kind:variable	line:95
+bl_idname	..\\src\\props_ui.py	/^    bl_idname = "OBJECT_PT_tester"$/;"	kind:variable	line:7
+bl_idname	..\\src\\test.py	/^    bl_idname="ndp.hello_world"$/;"	kind:variable	line:5
+bl_idname	..\\src\\update_op.py	/^    bl_idname = "ndp.update_geometry"$/;"	kind:variable	line:7
+bl_idname	..\\src\\utils_op.py	/^    bl_idname = "NDP_MT_menu_convert"$/;"	kind:variable	line:93
+bl_idname	..\\src\\utils_op.py	/^    bl_idname = "ndp.convert"$/;"	kind:variable	line:39
+bl_idname	..\\src\\utils_op.py	/^    bl_idname = "ndp.convert_ndp"$/;"	kind:variable	line:66
+bl_idname	..\\src\\utils_op.py	/^    bl_idname = "ndp.toggle_wireframe"$/;"	kind:variable	line:5
 bl_info	..\\__init__.py	/^bl_info = {$/;"	kind:variable	line:14
+bl_label	..\\src\\add_ui.py	/^    bl_label = "Non-Destructive"$/;"	kind:variable	line:6
+bl_label	..\\src\\event_op.py	/^    bl_label = "Exception if Context Restricted"$/;"	kind:variable	line:64
+bl_label	..\\src\\event_op.py	/^    bl_label="Event Edit Mode"$/;"	kind:variable	line:96
+bl_label	..\\src\\props_ui.py	/^    bl_label = "Non-Destructive Prim"$/;"	kind:variable	line:6
 bl_label	..\\src\\test.py	/^    bl_label="HELLO_WORLD"$/;"	kind:variable	line:6
-bl_label	..\\src\\ui\\extend\\add.py	/^    bl_label = "Non-Destructive"$/;"	kind:variable	line:6
-bl_options	..\\src\\op\\add.py	/^    bl_options = {'REGISTER', 'UNDO'}$/;"	kind:variable	line:47
-classes	..\\__init__.py	/^classes = [$/;"	kind:variable	line:31
-defaultPoll	..\\src\\op\\add.py	/^def defaultPoll(context):$/;"	kind:function	line:28
-default_ndp_pivot	..\\src\\op\\add.py	/^default_ndp_pivot=[.5, .5, .5]$/;"	kind:variable	line:26
-draw	..\\src\\ui\\extend\\add.py	/^    def draw(self, context):$/;"	kind:member	line:9
-execute	..\\src\\op\\add.py	/^    def execute(self, context):$/;"	kind:member	line:114
-execute	..\\src\\op\\add.py	/^    def execute(self, context):$/;"	kind:member	line:170
-execute	..\\src\\op\\add.py	/^    def execute(self, context):$/;"	kind:member	line:178
-execute	..\\src\\op\\add.py	/^    def execute(self, context):$/;"	kind:member	line:186
-execute	..\\src\\op\\add.py	/^    def execute(self, context):$/;"	kind:member	line:194
-execute	..\\src\\op\\add.py	/^    def execute(self, context):$/;"	kind:member	line:202
-execute	..\\src\\op\\add.py	/^    def execute(self, context):$/;"	kind:member	line:210
-execute	..\\src\\op\\add.py	/^    def execute(self, context):$/;"	kind:member	line:60
+bl_label	..\\src\\update_op.py	/^    bl_label = "Update non-destructive prim's geometry"$/;"	kind:variable	line:8
+bl_label	..\\src\\utils_op.py	/^    bl_label = "Convert NDP to Mesh"$/;"	kind:variable	line:67
+bl_label	..\\src\\utils_op.py	/^    bl_label = "Convert options"$/;"	kind:variable	line:40
+bl_label	..\\src\\utils_op.py	/^    bl_label = "Convert to:"$/;"	kind:variable	line:94
+bl_label	..\\src\\utils_op.py	/^    bl_label = "Toggle Wireframe on Object"$/;"	kind:variable	line:6
+bl_options	..\\src\\add_op.py	/^    bl_options = {'REGISTER', 'UNDO'}$/;"	kind:variable	line:25
+bl_options	..\\src\\edit_op.py	/^    bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}$/;"	kind:variable	line:30
+bl_options	..\\src\\event_op.py	/^    bl_options = {"INTERNAL"}$/;"	kind:variable	line:66
+bl_options	..\\src\\event_op.py	/^    bl_options={"INTERNAL"}$/;"	kind:variable	line:98
+bl_options	..\\src\\update_op.py	/^    bl_options = {'INTERNAL'}$/;"	kind:variable	line:11
+bl_options	..\\src\\utils_op.py	/^    bl_options = {'INTERNAL'}$/;"	kind:variable	line:69
+bl_options	..\\src\\utils_op.py	/^    bl_options = {'REGISTER', 'UNDO'}$/;"	kind:variable	line:42
+bl_options	..\\src\\utils_op.py	/^    bl_options = {'UNDO'}$/;"	kind:variable	line:8
+bl_region_type	..\\src\\props_ui.py	/^    bl_region_type = 'WINDOW'$/;"	kind:variable	line:9
+bl_space_type	..\\src\\props_ui.py	/^    bl_space_type = 'PROPERTIES'$/;"	kind:variable	line:8
+calculate_uvs	..\\src\\enums.py	/^    calculate_uvs = 9$/;"	kind:variable	line:31
+classes	..\\__init__.py	/^classes = [$/;"	kind:variable	line:35
+currentMode	..\\src\\event_op.py	/^    currentMode = ""$/;"	kind:variable	line:100
+divisions_x	..\\src\\enums.py	/^    divisions_x = 1$/;"	kind:variable	line:19
+divisions_y	..\\src\\enums.py	/^    divisions_y = 2$/;"	kind:variable	line:20
+divisions_z	..\\src\\enums.py	/^    divisions_z = 3$/;"	kind:variable	line:21
+draw	..\\src\\add_ui.py	/^    def draw(self, context):$/;"	kind:member	line:9
+draw	..\\src\\edit_op.py	/^    def draw(self, context):$/;"	kind:member	line:97
+draw	..\\src\\props_ui.py	/^    def draw(self, context):$/;"	kind:member	line:19
+draw	..\\src\\utils_op.py	/^    def draw(self, context):$/;"	kind:member	line:96
+draw_box	..\\src\\props_ui.py	/^    def draw_box(self, context):$/;"	kind:member	line:53
+draw_circle	..\\src\\props_ui.py	/^    def draw_circle(self, context):$/;"	kind:member	line:68
+draw_cone	..\\src\\props_ui.py	/^    def draw_cone(self, context):$/;"	kind:member	line:84
+draw_cylinder	..\\src\\props_ui.py	/^    def draw_cylinder(self, context):$/;"	kind:member	line:80
+draw_icosphere	..\\src\\props_ui.py	/^    def draw_icosphere(self, context):$/;"	kind:member	line:76
+draw_plane	..\\src\\props_ui.py	/^    def draw_plane(self, context):$/;"	kind:member	line:49
+draw_torus	..\\src\\props_ui.py	/^    def draw_torus(self, context):$/;"	kind:member	line:88
+draw_uvsphere	..\\src\\props_ui.py	/^    def draw_uvsphere(self, context):$/;"	kind:member	line:72
+edit_op.py	..\\src\\edit_op.py	1;"	kind:file	line:1
+enums.py	..\\src\\enums.py	1;"	kind:file	line:1
+event_op.py	..\\src\\event_op.py	1;"	kind:file	line:1
+execute	..\\src\\add_op.py	/^    def execute(self, context):$/;"	kind:member	line:34
+execute	..\\src\\edit_op.py	/^    def execute(self, context):$/;"	kind:member	line:46
+execute	..\\src\\event_op.py	/^    def execute(self, context):$/;"	kind:member	line:141
+execute	..\\src\\event_op.py	/^    def execute(self, context):$/;"	kind:member	line:89
 execute	..\\src\\test.py	/^    def execute(self, context):$/;"	kind:member	line:10
+execute	..\\src\\update_op.py	/^    def execute(self, context):$/;"	kind:member	line:25
+execute	..\\src\\utils_op.py	/^    def execute(self, context):$/;"	kind:member	line:24
+execute	..\\src\\utils_op.py	/^    def execute(self, context):$/;"	kind:member	line:54
+execute	..\\src\\utils_op.py	/^    def execute(self, context):$/;"	kind:member	line:88
 extend_menu	..\\src\\test.py	/^    extend_menu = None$/;"	kind:variable	line:8
-extend_menus	..\\__init__.py	/^def extend_menus(is_registering):$/;"	kind:function	line:99
-invoke	..\\src\\op\\add.py	/^    def invoke(self, context, event):$/;"	kind:member	line:53
-labelText	..\\src\\op\\add.py	/^labelText = "Add {} (Non-Destructive)"$/;"	kind:variable	line:6
-menu	..\\src\\ui\\utils.py	/^        menu = lambda menu, context: menu.layout.menu(cls.bl_idname, icon=cls.bl_icon)$/;"	kind:function	line:3
-menu_menu	..\\src\\ui\\utils.py	/^def menu_menu(cls, method):$/;"	kind:function	line:1
-menu_operator	..\\src\\ui\\utils.py	/^def menu_operator(cls, method):$/;"	kind:function	line:9
-ndp_pivot	..\\src\\op\\add.py	/^    ndp_pivot=6$/;"	kind:variable	line:24
-ndp_prim_type	..\\src\\op\\add.py	/^    ndp_prim_type=1$/;"	kind:variable	line:19
-ndp_sides_x	..\\src\\op\\add.py	/^    ndp_sides_x=3$/;"	kind:variable	line:21
-ndp_sides_y	..\\src\\op\\add.py	/^    ndp_sides_y=4$/;"	kind:variable	line:22
-ndp_sides_z	..\\src\\op\\add.py	/^    ndp_sides_z=5$/;"	kind:variable	line:23
-ndp_size	..\\src\\op\\add.py	/^    ndp_size=2$/;"	kind:variable	line:20
-operator	..\\src\\ui\\utils.py	/^        operator = lambda menu, context: menu.layout.operator(cls.bl_idname, text="something som/;"	kind:function	line:11
-poll	..\\src\\op\\add.py	/^    def poll(cls, context):$/;"	kind:member	line:50
-primName	..\\src\\op\\add.py	/^    primName = "Box"$/;"	kind:variable	line:111
-primName	..\\src\\op\\add.py	/^    primName = "Circle"$/;"	kind:variable	line:168
-primName	..\\src\\op\\add.py	/^    primName = "Cone"$/;"	kind:variable	line:200
-primName	..\\src\\op\\add.py	/^    primName = "Cylinder"$/;"	kind:variable	line:192
-primName	..\\src\\op\\add.py	/^    primName = "Ico Sphere"$/;"	kind:variable	line:184
-primName	..\\src\\op\\add.py	/^    primName = "Plane"$/;"	kind:variable	line:58
-primName	..\\src\\op\\add.py	/^    primName = "Torus"$/;"	kind:variable	line:208
-primName	..\\src\\op\\add.py	/^    primName = "UNKNOWN"$/;"	kind:variable	line:46
-primName	..\\src\\op\\add.py	/^    primName = "Uv Sphere"$/;"	kind:variable	line:176
-register	..\\__init__.py	/^def register():$/;"	kind:function	line:40
-separator	..\\__init__.py	/^separator = lambda menu, context: menu.layout.separator()$/;"	kind:function	line:95
-src_op_add_CLASSES	..\\__init__.py	/^from .src.op.add import CLASSES as src_op_add_CLASSES$/;"	kind:unknown	line:37
+extend_menus	..\\__init__.py	/^def extend_menus(is_registering):$/;"	kind:function	line:95
+fill_type	..\\src\\enums.py	/^    fill_type = 8$/;"	kind:variable	line:29
+get_properties_cache	..\\src\\props_containers.py	/^def get_properties_cache(context):$/;"	kind:function	line:94
+invoke	..\\src\\add_op.py	/^    def invoke(self, context, event):$/;"	kind:member	line:31
+invoke	..\\src\\edit_op.py	/^    def invoke(self, context, event):$/;"	kind:member	line:61
+invoke	..\\src\\event_op.py	/^    def invoke(self, context, event):$/;"	kind:member	line:112
+invoke	..\\src\\event_op.py	/^    def invoke(self, context, event):$/;"	kind:member	line:82
+invoke	..\\src\\utils_op.py	/^    def invoke(self, context,event):$/;"	kind:member	line:81
+isRunning	..\\src\\event_op.py	/^    isRunning = False$/;"	kind:variable	line:72
+is_ndp	..\\src\\enums.py	/^    is_ndp = 7$/;"	kind:variable	line:27
+menu	..\\src\\ui_utils.py	/^        menu = lambda menu, context: menu.layout.menu(cls)$/;"	kind:function	line:3
+menu	..\\src\\ui_utils.py	/^        menu = lambda menu, context: menu.layout.menu(cls.bl_idname, icon=cls.bl_icon)$/;"	kind:function	line:5
+menu_menu	..\\src\\ui_utils.py	/^def menu_menu(cls, method):$/;"	kind:function	line:1
+menu_operator	..\\src\\ui_utils.py	/^def menu_operator(cls, method):$/;"	kind:function	line:11
+modal	..\\src\\event_op.py	/^    def modal(self, context, event):$/;"	kind:member	line:115
+modal	..\\src\\event_op.py	/^    def modal(self, context, event):$/;"	kind:member	line:86
+on_set_props	..\\src\\add_op.py	/^    def on_set_props(self, obj):$/;"	kind:member	line:67
+operator	..\\src\\ui_utils.py	/^        operator = lambda menu, context: menu.layout.operator(cls.bl_idname, text="something som/;"	kind:function	line:13
+poll	..\\src\\add_op.py	/^    def poll(cls, context):$/;"	kind:member	line:28
+poll	..\\src\\edit_op.py	/^    def poll(cls, context):$/;"	kind:member	line:35
+poll	..\\src\\event_op.py	/^    def poll(self, context):$/;"	kind:member	line:103
+poll	..\\src\\event_op.py	/^    def poll(self, context):$/;"	kind:member	line:69
+poll	..\\src\\props_ui.py	/^    def poll(cls, context):$/;"	kind:member	line:13
+poll	..\\src\\update_op.py	/^    def poll(cls, context):$/;"	kind:member	line:15
+poll	..\\src\\utils_op.py	/^    def poll(self, context):$/;"	kind:member	line:18
+poll	..\\src\\utils_op.py	/^    def poll(self, context):$/;"	kind:member	line:45
+poll	..\\src\\utils_op.py	/^    def poll(self, context):$/;"	kind:member	line:72
+primName	..\\src\\add_op.py	/^    primName = "UNKNOWN"$/;"	kind:variable	line:24
+primName	..\\src\\add_op.py	/^    primName = PrimType.Box.name$/;"	kind:variable	line:76
+primName	..\\src\\add_op.py	/^    primName = PrimType.Circle.name$/;"	kind:variable	line:81
+primName	..\\src\\add_op.py	/^    primName = PrimType.Cone.name$/;"	kind:variable	line:97
+primName	..\\src\\add_op.py	/^    primName = PrimType.Cylinder.name$/;"	kind:variable	line:93
+primName	..\\src\\add_op.py	/^    primName = PrimType.IcoSphere.name$/;"	kind:variable	line:89
+primName	..\\src\\add_op.py	/^    primName = PrimType.Plane.name$/;"	kind:variable	line:72
+primName	..\\src\\add_op.py	/^    primName = PrimType.UvSphere.name$/;"	kind:variable	line:85
+prim_name	..\\src\\edit_op.py	/^    prim_name = ""$/;"	kind:variable	line:29
+prim_name	..\\src\\edit_op.py	/^    prim_name = PrimType.Box.name$/;"	kind:variable	line:89
+prim_name	..\\src\\edit_op.py	/^    prim_name = PrimType.Circle.name$/;"	kind:variable	line:120
+prim_name	..\\src\\edit_op.py	/^    prim_name = PrimType.Cone.name$/;"	kind:variable	line:136
+prim_name	..\\src\\edit_op.py	/^    prim_name = PrimType.Cylinder.name$/;"	kind:variable	line:132
+prim_name	..\\src\\edit_op.py	/^    prim_name = PrimType.IcoSphere.name$/;"	kind:variable	line:128
+prim_name	..\\src\\edit_op.py	/^    prim_name = PrimType.Plane.name$/;"	kind:variable	line:85
+prim_name	..\\src\\edit_op.py	/^    prim_name = PrimType.UvSphere.name$/;"	kind:variable	line:124
+prim_props	..\\src\\enums.py	/^prim_props = "ndp_props"$/;"	kind:variable	line:3
+prim_type	..\\src\\enums.py	/^    prim_type = 0$/;"	kind:variable	line:17
+prim_types	..\\src\\props_containers.py	/^prim_types = _init_prim_types()$/;"	kind:variable	line:15
+props_containers.py	..\\src\\props_containers.py	1;"	kind:file	line:1
+props_ui.py	..\\src\\props_ui.py	1;"	kind:file	line:1
+radius_a	..\\src\\enums.py	/^    radius_a = 10$/;"	kind:variable	line:33
+radius_b	..\\src\\enums.py	/^    radius_b = 11$/;"	kind:variable	line:34
+register	..\\__init__.py	/^def register():$/;"	kind:function	line:58
+register_events	..\\src\\event_op.py	/^def register_events():$/;"	kind:function	line:3
+separator	..\\__init__.py	/^separator = lambda menu, context: menu.layout.separator()$/;"	kind:function	line:91
+size_policy	..\\src\\enums.py	/^    size_policy = 12/;"	kind:variable	line:36
+size_x	..\\src\\enums.py	/^    size_x = 4$/;"	kind:variable	line:23
+size_y	..\\src\\enums.py	/^    size_y = 5$/;"	kind:variable	line:24
+size_z	..\\src\\enums.py	/^    size_z = 6$/;"	kind:variable	line:25
+src_event_CLASSES	..\\__init__.py	/^from .src.event_op import CLASSES as src_event_CLASSES$/;"	kind:unknown	line:53
+src_op_add_CLASSES	..\\__init__.py	/^from .src.add_op import CLASSES as src_op_add_CLASSES$/;"	kind:unknown	line:47
+src_op_edit_CLASSES	..\\__init__.py	/^from .src.edit_op import CLASSES as src_op_edit_CLASSES$/;"	kind:unknown	line:50
+src_utils_op_CLASSES	..\\__init__.py	/^from .src.utils_op import CLASSES as src_utils_op_CLASSES$/;"	kind:unknown	line:44
 test.py	..\\src\\test.py	1;"	kind:file	line:1
-ui.py	..\\src\\utils\\ui.py	1;"	kind:file	line:1
-unregister	..\\__init__.py	/^def unregister():$/;"	kind:function	line:72
-utils.py	..\\src\\op\\add\\utils.py	1;"	kind:file	line:1
-utils.py	..\\src\\ui\\utils.py	1;"	kind:file	line:1
+toggle_mode	..\\src\\utils_op.py	/^    toggle_mode = bpy.props.EnumProperty($/;"	kind:variable	line:10
+ui_utils.py	..\\src\\ui_utils.py	1;"	kind:file	line:1
+unregister	..\\__init__.py	/^def unregister():$/;"	kind:function	line:80
+unregister_events	..\\src\\event_op.py	/^def unregister_events():$/;"	kind:function	line:11
+update_func	..\\src\\update_utils.py	/^update_func = {$/;"	kind:variable	line:188
+update_op.py	..\\src\\update_op.py	1;"	kind:file	line:1
+update_utils.py	..\\src\\update_utils.py	1;"	kind:file	line:1
+utils_op.py	..\\src\\utils_op.py	1;"	kind:file	line:1

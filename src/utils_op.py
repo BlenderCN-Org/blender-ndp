@@ -7,7 +7,7 @@ class OpToggleWireframe(bpy.types.Operator):
     bl_description = "Turns on and off wireframe over the object."
     bl_options = {'UNDO'}
 
-    toggle_mode = bpy.props.EnumProperty(
+    toggle_mode : bpy.props.EnumProperty(
         items = (
             ('TOGGLE', "Toggle", "Inverts the visibility of a wireframe over object."),
             ('TURN_ON', "Turn On", "Turns on wireframe over object"),
