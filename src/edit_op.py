@@ -7,11 +7,9 @@ def __setupProperly(cls):
     cls.bl_idname = "ndp.edit_{}".format(cls.prim_name).lower().replace(' ', '')
     cls.bl_label = "Edit {} (Non-Destructive)".format(cls.prim_name)
     cls.bl_description = "Edits a non-destructive {} primitive".format(cls.prim_name).lower()
-    # cls.mesh_update_func = update_func[cls.prim_name.upper()]
     if not cls.bl_icon:
         cls.bl_icon = "MESH_{}".format(cls.prim_name.replace(' ', '').upper())
 
-    print(cls.bl_idname)
     return cls
 
 def _set_values(props_from, props_to):
@@ -28,8 +26,6 @@ class _BaseOpEditPrim(bpy.types.Operator):
     bl_icon = ""
     prim_name = ""
     bl_options = {'REGISTER', 'UNDO', 'INTERNAL'}
-    # mesh_update_func = lambda self, context, obj: print(
-    #         "Class '{}' was not setup-ed properly!".format(str(type(self))))
 
     @classmethod
     def poll(cls, context):

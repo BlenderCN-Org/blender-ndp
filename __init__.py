@@ -23,7 +23,6 @@ bl_info = {
 
 import bpy
 
-from . src.test import OpHelloWorld
 from . src.add_ui import SubmenuAdd
 from . src.props_containers import PropertiesContainer, InitialPropertiesCacheContainer
 
@@ -34,7 +33,6 @@ from . src.enums import prim_props, CustomProperty, PrimType
 
 classes = [
     OpUpdateGeometry,
-    OpHelloWorld,
     PropertiesContainer,
     InitialPropertiesCacheContainer,
 
@@ -56,8 +54,6 @@ from .src.event_op import register_events, unregister_events
 
 
 def register():
-    # global keymaps, icons
-
     from bpy.utils import register_class
     for c in classes:
         register_class(c)
@@ -74,8 +70,6 @@ def register():
 
 def unregister():
     from bpy.utils import unregister_class
-    # # from utils.registration import unregister_icons, unregister_keymaps
-    # global keymaps, icons
     
     for c in classes:
         unregister_class(c)

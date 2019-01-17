@@ -58,7 +58,6 @@ class OpConvert(bpy.types.Operator):
             bpy.ops.ndp.convert_ndp('INVOKE_DEFAULT')
         else:
             bpy.ops.wm.call_menu(name="NDP_MT_menu_convert")
-            #bpy.ops.object.convert()
         
         return {'FINISHED'}
 

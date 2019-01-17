@@ -4,7 +4,6 @@ def register_events():
     bpy.app.handlers.load_factory_startup_post.append(_load_handler)
     bpy.app.handlers.load_post.append(_load_handler)
 
-    regEventsRegistered = 1
     if not bpy.app.timers.is_registered(_register_events):
         bpy.app.timers.register(_register_events, first_interval=.5)
 
@@ -46,7 +45,7 @@ def _register_events():
                 print("RESTRICTED!\n{}".format(exceptionMessage))
                 return 1
         
-        print("NDP EVENTS REGISTERED!")
+        # print("NDP EVENTS REGISTERED!")
         if override:
             bpy.ops.ndp.event_editmode(override)
         else:
@@ -73,15 +72,14 @@ class EventContextReady(bpy.types.Operator):
 
     def __init__(self):
         EventContextReady.isRunning = True
-        print("Start ContextReady")
+        # print("Start ContextReady")
 
     def __del__(self):
         EventContextReady.isRunning = False
-        print("End ContextReady")
+        # print("End ContextReady")
 
     def invoke(self, context, event):
         return self.execute(context)
-        # return self.execute(context)
 
     def modal(self, context, event):
         return {'PASS_THROUGH'}
@@ -103,11 +101,11 @@ class EventEditMode(bpy.types.Operator):
     def poll(self, context):
         return True
 
-    def __init__(self):
-        print("Start EventEditMode")
+    # def __init__(self):
+    #     print("Start EventEditMode")
 
-    def __del__(self):
-        print("End EventEditMode")
+    # def __del__(self):
+    #     print("End EventEditMode")
 
     def invoke(self, context, event):
         return self.execute(context)
@@ -126,10 +124,8 @@ class EventEditMode(bpy.types.Operator):
         mesh = activeObject.data
         ndp_props = mesh.ndp_props
         if not mesh.ndp_props.is_ndp:
-            #print("default prim")
             return {'PASS_THROUGH'}
 
-        #print("EDITING NON-D PRIM!")
         op_edit = getattr(
             bpy.ops.ndp,
             "edit_{}".format(ndp_props.prim_type.lower()))

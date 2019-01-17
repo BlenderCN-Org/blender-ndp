@@ -10,11 +10,10 @@ def __setupProperly(cls):
     cls.bl_idname = "ndp.{}".format(cls.primName).lower().replace(' ', '')
     cls.bl_label = "Add {} (Non-Destructive)".format(cls.primName)
     cls.bl_description = "Creates a non-destructive {} primitive".format(cls.primName).lower()
-    # cls.mesh_update_func = update_func[cls.primName.upper()]
     if not cls.bl_icon:
         cls.bl_icon = "MESH_{}".format(cls.primName.replace(' ', '').upper())
 
-    print(cls.bl_idname)
+    # print(cls.bl_idname)
     return cls
 
 from . props_containers import get_properties_cache
@@ -56,7 +55,6 @@ class _BaseOpCreatePrim(bpy.types.Operator):
 
         context.scene.update()
 
-        # self.mesh_update_func(context, obj)
         bpy.ops.ndp.update_geometry()
 
         getattr(bpy.ops.ndp, "edit_{}".format(self.primName.lower()))('INVOKE_DEFAULT')

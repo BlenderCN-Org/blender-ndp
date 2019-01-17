@@ -9,7 +9,6 @@ class OpUpdateGeometry(bpy.types.Operator):
     bl_description = "Updates mesh geometry according to attached props"
 
     bl_options = {'INTERNAL'}
-    # bl_options = {'UNDO_GROUPED', 'INTERNAL'}
 
     @classmethod
     def poll(cls, context):
