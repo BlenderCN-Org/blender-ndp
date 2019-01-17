@@ -37,9 +37,9 @@ def _register_events():
                     override['screen'] = window.screen
 
                 if override:
-                    bpy.ops.nondestructive_prims.raise_if_context_restricted(override)
+                    bpy.ops.ndp.raise_if_context_restricted(override)
                 else:
-                    bpy.ops.nondestructive_prims.raise_if_context_restricted('INVOKE_DEFAULT')
+                    bpy.ops.ndp.raise_if_context_restricted('INVOKE_DEFAULT')
                 break
             except BaseException as exception:
                 exceptionMessage = str(exception)
@@ -48,9 +48,9 @@ def _register_events():
         
         print("NDP EVENTS REGISTERED!")
         if override:
-            bpy.ops.nondestructive_prims.event_editmode(override)
+            bpy.ops.ndp.event_editmode(override)
         else:
-            bpy.ops.nondestructive_prims.event_editmode('INVOKE_DEFAULT')
+            bpy.ops.ndp.event_editmode('INVOKE_DEFAULT')
 
 from bpy.app.handlers import persistent
 @persistent
@@ -60,7 +60,7 @@ def _load_handler(dummy):
 
 
 class EventContextReady(bpy.types.Operator):
-    bl_idname = "nondestructive_prims.raise_if_context_restricted"
+    bl_idname = "ndp.raise_if_context_restricted"
     bl_label = "Exception if Context Restricted"
     bl_description = "Raises exception if context is restricted"
     bl_options = {"INTERNAL"}
@@ -92,7 +92,7 @@ class EventContextReady(bpy.types.Operator):
 
 
 class EventEditMode(bpy.types.Operator):
-    bl_idname="nondestructive_prims.event_editmode"
+    bl_idname="ndp.event_editmode"
     bl_label="Event Edit Mode"
     bl_description="Sends out an event about entering edit mode"
     bl_options={"INTERNAL"}
@@ -123,14 +123,15 @@ class EventEditMode(bpy.types.Operator):
         if not activeObject:
             return {'PASS_THROUGH'}
         
-        ndp_props = activeObject.non_destructive
-        if not activeObject.non_destructive.is_ndp:
+        mesh = activeObject.data
+        ndp_props = mesh.ndp_props
+        if not mesh.ndp_props.is_ndp:
             #print("default prim")
             return {'PASS_THROUGH'}
 
         #print("EDITING NON-D PRIM!")
         op_edit = getattr(
-            bpy.ops.nondestructive_prims,
+            bpy.ops.ndp,
             "edit_{}".format(ndp_props.prim_type.lower()))
         op_edit('INVOKE_AREA')
         context.scene.update()

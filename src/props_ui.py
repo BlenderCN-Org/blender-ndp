@@ -11,12 +11,10 @@ class PrimObjectPanel(bpy.types.Panel):
 
     @classmethod
     def poll(cls, context):
-        obj = context.object
-        if not obj:
+        try:
+            return context.object.data.ndp_props.is_ndp
+        except:
             return False
-        ndp_props = obj.non_destructive
-        is_ndp = getattr(ndp_props, CustomProperty.is_ndp.name)
-        return is_ndp
 
     def draw(self, context):
         obj = context.object
@@ -24,7 +22,7 @@ class PrimObjectPanel(bpy.types.Panel):
         # if not obj:
         #     layout.label("SELECT OBJECT!")
 
-        ndp_props = obj.non_destructive
+        ndp_props = obj.data.ndp_props
         # is_ndp = getattr(ndp_props, CustomProperty.is_ndp.name)
         # if not is_ndp:
         #     layout.label(text="Not non-destructive prim!")
@@ -49,11 +47,11 @@ class PrimObjectPanel(bpy.types.Panel):
         #     self.draw_torus(context)
     
     def draw_plane(self, context):
-        props = context.object.non_destructive
+        props = context.object.data.ndp_props
         layout : bpy.types.UILayout = self.layout
     
     def draw_box(self, context):
-        props = context.object.non_destructive
+        props = context.object.data.ndp_props
         layout : bpy.types.UILayout = self.layout
         row = layout.row()
         row.label(text="divisions")
@@ -68,25 +66,25 @@ class PrimObjectPanel(bpy.types.Panel):
         row.prop(props, CustomProperty.size_z.name, text="Z")
     
     def draw_circle(self, context):
-        props = context.object.non_destructive
+        props = context.object.data.ndp_props
         layout : bpy.types.UILayout = self.layout
     
     def draw_uvsphere(self, context):
-        props = context.object.non_destructive
+        props = context.object.data.ndp_props
         layout : bpy.types.UILayout = self.layout
     
     def draw_icosphere(self, context):
-        props = context.object.non_destructive
+        props = context.object.data.ndp_props
         layout : bpy.types.UILayout = self.layout
     
     def draw_cylinder(self, context):
-        props = context.object.non_destructive
+        props = context.object.data.ndp_props
         layout : bpy.types.UILayout = self.layout
     
     def draw_cone(self, context):
-        props = context.object.non_destructive
+        props = context.object.data.ndp_props
         layout : bpy.types.UILayout = self.layout
     
     def draw_torus(self, context):
-        props = context.object.non_destructive
+        props = context.object.data.ndp_props
         layout : bpy.types.UILayout = self.layout

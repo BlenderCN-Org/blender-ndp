@@ -2,7 +2,7 @@ import bpy
 
 #CTRL+W
 class OpToggleWireframe(bpy.types.Operator):
-    bl_idname = "nondestructive_prims.toggle_wireframe"
+    bl_idname = "ndp.toggle_wireframe"
     bl_label = "Toggle Wireframe on Object"
     bl_description = "Turns on and off wireframe over the object."
     bl_options = {'UNDO'}
@@ -34,14 +34,9 @@ class OpToggleWireframe(bpy.types.Operator):
             pass
         return {'FINISHED'}
 
-_convert_options = (
-    ('MESH', "Mesh", ""),
-    ('CURVE', "Curve", ""),
-    (''))
-
 #ALT+C
 class OpConvert(bpy.types.Operator):
-    bl_idname = "nondestructive_prims.convert"
+    bl_idname = "ndp.convert"
     bl_label = "Convert options"
     bl_description = "Convert options"
     bl_options = {'REGISTER', 'UNDO'}
@@ -58,17 +53,17 @@ class OpConvert(bpy.types.Operator):
 
     def execute(self, context):
         obj = context.active_object
-        ndp_props = obj.non_destructive
+        ndp_props = obj.data.ndp_props
         if ndp_props.is_ndp:
-            bpy.ops.nondestructive_prims.convert_ndp('INVOKE_DEFAULT')
+            bpy.ops.ndp.convert_ndp('INVOKE_DEFAULT')
         else:
-            bpy.ops.wm.call_menu(name="NONDESTRUCTIVE_PRIMS_MT_menu_convert")
+            bpy.ops.wm.call_menu(name="NDP_MT_menu_convert")
             #bpy.ops.object.convert()
         
         return {'FINISHED'}
 
 class OpConvertNdp(bpy.types.Operator):
-    bl_idname = "nondestructive_prims.convert_ndp"
+    bl_idname = "ndp.convert_ndp"
     bl_label = "Convert NDP to Mesh"
     bl_description = "Convert Non Destructive Prim to a regular mesh."
     bl_options = {'INTERNAL'}
@@ -79,23 +74,23 @@ class OpConvertNdp(bpy.types.Operator):
             return False
         
         try:
-            return context.active_object.non_destructive.is_ndp
+            return context.active_object.data.ndp_props.is_ndp
         except:
             return False
 
     def invoke(self, context,event):
         obj = context.active_object
-        ndp_props = obj.non_destructive
+        ndp_props = obj.data.ndp_props
         wm : bpy.types.WindowManager = context.window_manager
         
         return wm.invoke_confirm(self, event)
     
     def execute(self, context):
-        context.active_object.non_destructive.is_ndp = False
+        context.active_object.data.ndp_props.is_ndp = False
         return {'FINISHED'}
 
 class MenuConvert(bpy.types.Menu):
-    bl_idname = "NONDESTRUCTIVE_PRIMS_MT_menu_convert"
+    bl_idname = "NDP_MT_menu_convert"
     bl_label = "Convert to:"
 
     def draw(self, context):

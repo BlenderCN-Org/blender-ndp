@@ -7,7 +7,7 @@ from enum import Enum
 from . enums import PrimType, CustomProperty, prim_props
 
 def __setupProperly(cls):
-    cls.bl_idname = "nondestructive_prims.{}".format(cls.primName).lower().replace(' ', '')
+    cls.bl_idname = "ndp.{}".format(cls.primName).lower().replace(' ', '')
     cls.bl_label = "Add {} (Non-Destructive)".format(cls.primName)
     cls.bl_description = "Creates a non-destructive {} primitive".format(cls.primName).lower()
     # cls.mesh_update_func = update_func[cls.primName.upper()]
@@ -23,9 +23,6 @@ class _BaseOpCreatePrim(bpy.types.Operator):
     bl_icon = ""
     primName = "UNKNOWN"
     bl_options = {'REGISTER', 'UNDO'}
-
-    # mesh_update_func = lambda self, context, obj: print(
-    #         "Class '{}' was not setup-ed properly!".format(str(type(self))))
 
     @classmethod
     def poll(cls, context):
@@ -45,8 +42,9 @@ class _BaseOpCreatePrim(bpy.types.Operator):
             enter_editmode=False,
             location=scene.cursor_location,
             rotation=rotation)
-        obj = context.active_object
-        ndp_props = obj.non_destructive
+        obj : bpy.types.Object = context.active_object
+        mesh = obj.data
+        ndp_props = mesh.ndp_props
         #Set Props:
         cache = getattr(get_properties_cache(context), self.primName.lower())
         for cp in CustomProperty:
@@ -55,19 +53,13 @@ class _BaseOpCreatePrim(bpy.types.Operator):
 
         setattr(ndp_props, CustomProperty.is_ndp.name, True)
         setattr(ndp_props, CustomProperty.prim_type.name, getattr(cache, CustomProperty.prim_type.name))
-        # obj.non_destructive[CustomProperty.divisions_x.name] = 1
-        # obj.non_destructive[CustomProperty.divisions_y.name] = 1
-        # obj.non_destructive[CustomProperty.divisions_z.name] = 1
-        # obj.non_destructive[CustomProperty.size_x.name] = 1.0
-        # obj.non_destructive[CustomProperty.size_y.name] = 1.0
-        # obj.non_destructive[CustomProperty.size_z.name] = 1.0
 
         context.scene.update()
 
         # self.mesh_update_func(context, obj)
-        bpy.ops.nondestructive_prims.update_geometry()
+        bpy.ops.ndp.update_geometry()
 
-        getattr(bpy.ops.nondestructive_prims, "edit_{}".format(self.primName.lower()))('INVOKE_DEFAULT')
+        getattr(bpy.ops.ndp, "edit_{}".format(self.primName.lower()))('INVOKE_DEFAULT')
 
         print("CREATED {}".format(self.primName))
         return {'FINISHED'}

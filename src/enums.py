@@ -1,6 +1,6 @@
 from enum import Enum
 
-prim_props = "non_destructive"
+prim_props = "ndp_props"
 
 class PrimType(Enum):
     Unknown = 0

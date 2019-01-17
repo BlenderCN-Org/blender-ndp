@@ -1,10 +1,6 @@
 import bpy
 from . enums import PrimType, CustomProperty, prim_props
 
-# def factoryPropertiesModel(obj):
-#     prim_type = obj[prim_props][CustomProperty.prim_type.name]
-#     return prim_type_to_init_mapping[prim_type]()
-
 def _init_prim_types():
         enum_items = []
         for prim_type in PrimType:

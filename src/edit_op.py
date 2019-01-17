@@ -4,7 +4,7 @@ from . enums import CustomProperty, PrimType
 import time
 
 def __setupProperly(cls):
-    cls.bl_idname = "nondestructive_prims.edit_{}".format(cls.prim_name).lower().replace(' ', '')
+    cls.bl_idname = "ndp.edit_{}".format(cls.prim_name).lower().replace(' ', '')
     cls.bl_label = "Edit {} (Non-Destructive)".format(cls.prim_name)
     cls.bl_description = "Edits a non-destructive {} primitive".format(cls.prim_name).lower()
     # cls.mesh_update_func = update_func[cls.prim_name.upper()]
@@ -36,7 +36,7 @@ class _BaseOpEditPrim(bpy.types.Operator):
         if (context.area is not None) and (context.area.type != 'VIEW_3D'):
             return False
         try:
-            ndp_props = context.object.non_destructive
+            ndp_props = context.object.data.ndp_props
             if not ndp_props[CustomProperty.is_ndp.name]:
                 return False
             return ndp_props.prim_type == cls.prim_name.upper()
@@ -46,9 +46,10 @@ class _BaseOpEditPrim(bpy.types.Operator):
     def execute(self, context):
         self._on_executing(context)
         obj = context.object
-        _set_values(self.props, obj.non_destructive)
+        mesh = obj.data
+        _set_values(self.props, mesh.ndp_props)
 
-        bpy.ops.nondestructive_prims.update_geometry()
+        bpy.ops.ndp.update_geometry()
         return {'FINISHED'}
     
     def _on_executing(self, context):
@@ -59,7 +60,8 @@ class _BaseOpEditPrim(bpy.types.Operator):
 
     def invoke(self, context, event):
         obj = context.object
-        _set_values(obj.non_destructive, self.props)
+        mesh = obj.data
+        _set_values(mesh.ndp_props, self.props)
 
         obj.show_wire = True
         obj.show_all_edges = True
@@ -72,7 +74,7 @@ class _BaseOpEditPrim(bpy.types.Operator):
 
         self._on_invoke(context, event)
 
-        bpy.ops.nondestructive_prims.update_geometry()
+        bpy.ops.ndp.update_geometry()
 
         w = wm.invoke_props_popup(self, event)
 
@@ -90,7 +92,7 @@ class OpEditBox(_BaseOpEditPrim):
 
     def _on_invoke(self, context, event):
         setattr(self, CustomProperty.size_x.name,
-            getattr(context.object.non_destructive, CustomProperty.size_x.name))
+            getattr(context.object.data.ndp_props, CustomProperty.size_x.name))
 
     def draw(self, context):
         obj = context.object

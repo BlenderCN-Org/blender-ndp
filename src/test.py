@@ -2,7 +2,7 @@ import bpy
 
 class OpHelloWorld(bpy.types.Operator):
     bl_icon = 'PLUGIN'
-    bl_idname="nondestructive_pcrims.hello_world"
+    bl_idname="ndp.hello_world"
     bl_label="HELLO_WORLD"
 
     extend_menu = None

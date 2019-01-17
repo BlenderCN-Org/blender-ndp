@@ -12,7 +12,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 bl_info = {
-    "name" : "NonDestructivePrimsPipwazou",
+    "name" : "NDP(Non-Destructive Primitives)",
     "author" : "ChieVFX",
     "description" : "",
     "blender" : (2, 80, 0),
@@ -26,7 +26,7 @@ import bpy
 # from . utils.ui import extend_menus
 
 from . src.test import OpHelloWorld
-from . src.add_ui import SubmenuNonDestructive
+from . src.add_ui import SubmenuAdd
 from . src.props_containers import PropertiesContainer, InitialPropertiesCacheContainer
 
 from . src.update_op import OpUpdateGeometry
@@ -43,7 +43,7 @@ classes = [
     InitialPropertiesCacheContainer,
     PrimObjectPanel,
 
-    SubmenuNonDestructive,
+    SubmenuAdd,
 ]
 
 from .src.utils_op import CLASSES as src_utils_op_CLASSES
@@ -74,7 +74,7 @@ def register():
     # print("HEY!")
     # scene.ndp_cache_initial
 
-    bpy.types.Object.non_destructive = bpy.props.PointerProperty(
+    bpy.types.Mesh.ndp_props = bpy.props.PointerProperty(
         type = PropertiesContainer,
         name = "Non Destructive Prim Props")
 
@@ -101,11 +101,9 @@ def extend_menus(is_registering):
     _extend_menu_add(is_registering)
 
 def _extend_menu_add(is_registering):
-    print("EXTEND: " + str(is_registering))
     prepend = bpy.types.VIEW3D_MT_add.prepend
     append = bpy.types.VIEW3D_MT_add.append
 
-    menu_menu(SubmenuNonDestructive, prepend)
-    menu_operator(OpHelloWorld, prepend)
+    menu_menu(SubmenuAdd, prepend)
 
 extend_menus(True)
