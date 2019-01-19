@@ -61,7 +61,10 @@ def _create_plane(obj:bpy.types.Object, bm:bmesh.types.BMesh,
         matrix = identity,
         calc_uvs = calculate_uvs)
     verts = bm.verts[:]
-    bmesh.ops.scale(bm, vec=size, space=identity, verts=verts)
+    actual_size = []
+    for i in range(0, 3):
+        actual_size.append(size[i]*.5)
+    bmesh.ops.scale(bm, vec=actual_size, space=identity, verts=verts)
     return bm
 
 def _create_box(obj:bpy.types.Object, bm:bmesh.types.BMesh,
@@ -114,7 +117,7 @@ def _create_icosphere(obj:bpy.types.Object, bm:bmesh.types.BMesh,
     matrix, divisions, size, radius, fill_type, calculate_uvs, size_policy, identity):
     bmesh.ops.create_icosphere(
         bm,
-        subdivisions = divisions[0],
+        subdivisions = 1+divisions[0],
         diameter = radius[0],
         matrix = identity,
         calc_uvs = calculate_uvs)

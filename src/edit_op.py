@@ -40,6 +40,9 @@ def _update_transform(props_transform, obj, context):
 def _on_transform_updated(self, context):
     self._is_dirty = True
 
+def _set_divisions(self, context):
+    self.props.divisions = self.divisions
+
 class _PropsTransform(bpy.types.PropertyGroup):
     location_x : bpy.props.FloatProperty(
         name="X", subtype='DISTANCE', unit='LENGTH',
@@ -106,6 +109,7 @@ class _BaseOpEditPrim(bpy.types.Operator):
         obj : bpy.types.Object = context.object
         mesh = obj.data
         _set_values(mesh.ndp_props, self.props)
+        self.divisions = mesh.ndp_props.divisions
         transform = self.props_transform
         location = obj.location
         setattr(transform, "location_x", location[0])
@@ -158,11 +162,13 @@ class OpEditPlane(_BaseOpEditPrim):
     prim_name = PrimType.Plane.name
     props : bpy.props.PointerProperty(type=PropertiesContainer)
     props_transform : bpy.props.PointerProperty(type=_PropsTransform)
+    divisions : bpy.props.IntVectorProperty(size=3, min=0, soft_max=100,
+        update=_set_divisions)
 
     def _on_draw(self, context, layout, props):
         draw_prop_array(self.props, layout, "Size(XY)",
             'size', [0, 1])
-        draw_prop_array(self.props, layout, "Divisions",
+        draw_prop_array(self, layout, "Divisions",
             'divisions', [0, 1])
 
 @__setupProperly
@@ -170,11 +176,13 @@ class OpEditBox(_BaseOpEditPrim):
     prim_name = PrimType.Box.name
     props : bpy.props.PointerProperty(type=PropertiesContainer)
     props_transform : bpy.props.PointerProperty(type=_PropsTransform)
+    divisions : bpy.props.IntVectorProperty(size=3, min=0, soft_max=100,
+        update=_set_divisions)
 
     def _on_draw(self, context, layout, props):
         draw_prop_array(self.props, layout, "Size(XYZ)",
             'size', [0, 1, 2])
-        draw_prop_array(self.props, layout, "Divisions",
+        draw_prop_array(self, layout, "Divisions",
             'divisions', [0, 1, 2])
         
 @__setupProperly
@@ -182,14 +190,16 @@ class OpEditCircle(_BaseOpEditPrim):
     prim_name = PrimType.Circle.name
     props : bpy.props.PointerProperty(type=PropertiesContainer)
     props_transform : bpy.props.PointerProperty(type=_PropsTransform)
+    divisions : bpy.props.IntVectorProperty(size=3, min=0, soft_max=500,
+        update=_set_divisions)
 
     def _on_draw(self, context, layout, props):
-        layout.prop(props, 'divisions', index=0, text="Vertices")
+        layout.prop(self, 'divisions', index=0, text="Vertices")
         if props.size_policy == 'AXIS_SCALE':
             draw_prop_array(props, layout, "Size(XY)",
                 'size', [0, 1])
         elif props.size_policy == 'DEFAULT':
-            layout.prop(props, 'radius_a', text="Radius")
+            layout.prop(props, 'radius', index=0, text="Radius")
         layout.prop(props, 'fill_type')
         
 @__setupProperly
@@ -197,47 +207,53 @@ class OpEditUvSphere(_BaseOpEditPrim):
     prim_name = PrimType.UvSphere.name
     props : bpy.props.PointerProperty(type=PropertiesContainer)
     props_transform : bpy.props.PointerProperty(type=_PropsTransform)
+    divisions : bpy.props.IntVectorProperty(size=3, min=0, soft_max=100,
+        update=_set_divisions)
 
     def _on_draw(self, context, layout, props):
         #segments, rings, radius (m)
-        layout.prop(props, 'divisions', index=0, text="Segments")
-        layout.prop(props, 'divisions', index=1, text="Rings")
+        layout.prop(self, 'divisions', index=0, text="Segments")
+        layout.prop(self, 'divisions', index=1, text="Rings")
         if props.size_policy == 'AXIS_SCALE':
             draw_prop_array(self.props, layout, "Size(XYZ)",
                 'size', [0, 1, 2])
         elif props.size_policy == 'DEFAULT':
-            layout.prop(props, 'radius_a', text="Radius")
+            layout.prop(props, 'radius', index=0, text="Radius")
         
 @__setupProperly
 class OpEditIcoSphere(_BaseOpEditPrim):
     prim_name = PrimType.IcoSphere.name
     props : bpy.props.PointerProperty(type=PropertiesContainer)
     props_transform : bpy.props.PointerProperty(type=_PropsTransform)
+    divisions : bpy.props.IntVectorProperty(size=3, min=0, soft_max=4,
+        update=_set_divisions)
 
     def _on_draw(self, context, layout, props):
         #subdivisions, radius (m)
-        layout.prop(props, 'divisions', index=0, text="Subdivisions")
+        layout.prop(self, 'divisions', index=0, text="Subdivisions")
         if props.size_policy == 'AXIS_SCALE':
             draw_prop_array(self.props, layout, "Size(XYZ)",
                 'size', [0, 1, 2])
         elif props.size_policy == 'DEFAULT':
-            layout.prop(props, 'radius_a', text="Radius")
+            layout.prop(props, 'radius', index=0, text="Radius")
         
 @__setupProperly
 class OpEditCylinder(_BaseOpEditPrim):
     prim_name = PrimType.Cylinder.name
     props : bpy.props.PointerProperty(type=PropertiesContainer)
     props_transform : bpy.props.PointerProperty(type=_PropsTransform)
+    divisions : bpy.props.IntVectorProperty(size=3, min=0, soft_max=500,
+        update=_set_divisions)
 
     def _on_draw(self, context, layout, props):
         #vertices, radius (m), depth (m), cap fill type
-        layout.prop(props, 'divisions', index=0, text="Vertices")
+        layout.prop(self, 'divisions', index=0, text="Vertices")
         if props.size_policy == 'AXIS_SCALE':
             draw_prop_array(self.props, layout, "Size(XYZ)",
                 'size', [0, 1, 2])
         elif props.size_policy == 'DEFAULT':
-            layout.prop(props, 'radius_a', text="Radius")
-            layout.prop(props, 'size_z', text="Depth")
+            layout.prop(props, 'radius', index=0, text="Radius")
+            layout.prop(props, 'size', index=2, text="Depth")
         layout.prop(props, 'fill_type')
         
 @__setupProperly
@@ -245,17 +261,19 @@ class OpEditCone(_BaseOpEditPrim):
     prim_name = PrimType.Cone.name
     props : bpy.props.PointerProperty(type=PropertiesContainer)
     props_transform : bpy.props.PointerProperty(type=_PropsTransform)
+    divisions : bpy.props.IntVectorProperty(size=3, min=0, soft_max=500,
+        update=_set_divisions)
 
     def _on_draw(self, context, layout, props):
         #vertices, radius 1 (m), radius 2(m), depth (m), cap fill type
-        layout.prop(props, 'divisions', index=0, text="Vertices")
+        layout.prop(self, 'divisions', index=0, text="Vertices")
         if props.size_policy == 'AXIS_SCALE':
             draw_prop_array(self.props, layout, "Size(XYZ)",
                 'size', [0, 1, 2])
         elif props.size_policy == 'DEFAULT':
-            layout.prop(props, 'radius_a', text="Radius 1")
-            layout.prop(props, 'radius_b', text="Radius 2")
-            layout.prop(props, 'size_z', text="Depth")
+            layout.prop(props, 'radius', index=0, text="Radius 1")
+            layout.prop(props, 'radius', index=1, text="Radius 2")
+            layout.prop(props, 'size', index=2, text="Depth")
         layout.prop(props, 'fill_type')
 
 

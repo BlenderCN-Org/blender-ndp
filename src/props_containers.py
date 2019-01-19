@@ -37,7 +37,7 @@ class PropertiesContainer(bpy.types.PropertyGroup):
     #divisions are also used as segments and rings for sphere,
     #vertices for circle, etc
     divisions : bpy.props.IntVectorProperty(
-        min=0, size=3, default=(1,1,1))
+        min=0, size=3, default=(0,0,0))
     #axis_based_size
     size : bpy.props.FloatVectorProperty(
         size=3, default=(1,1,1))
@@ -104,10 +104,22 @@ def get_properties_cache(context):
             continue
         setattr(getattr(cache, prim_type.name.lower()), "prim_type", prim_type.name.upper())
     
+    cache.plane.size = (2,2,2)
+
+    cache.box.size = (2,2,2)
+
     cache.circle.divisions[0] = 32
-    
+    setattr(cache.circle, 'fill_type', 'NOTHING')
+
+    cache.uvsphere.divisions[0] = 32
+    cache.uvsphere.divisions[1] = 16
+
+    cache.icosphere.divisions[0] = 2
+
     cache.cylinder.divisions[0] = 32
+    cache.cylinder.size[2] = 2
     
     cache.cone.divisions[0] = 32
+    cache.cone.size[2] = 2
 
     return cache
