@@ -55,7 +55,8 @@ from bpy.app.handlers import persistent
 @persistent
 def _load_handler(dummy):
     if not bpy.app.timers.is_registered(_register_events):
-        bpy.app.timers.register(_register_events)
+        bpy.app.timers.register(_register_events, first_interval = .5)
+    _register_events()
 
 
 class EventContextReady(bpy.types.Operator):
@@ -101,8 +102,8 @@ class EventEditMode(bpy.types.Operator):
     def poll(self, context):
         return True
 
-    # def __init__(self):
-    #     print("Start EventEditMode")
+    def __init__(self):
+        print("Start EventEditMode")
 
     # def __del__(self):
     #     print("End EventEditMode")

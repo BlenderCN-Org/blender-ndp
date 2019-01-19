@@ -97,7 +97,8 @@ def get_properties_cache(context):
         
         return cache
     except:
-        print("Initializing NDP Cache...")
+        # print("Initializing NDP Cache...")
+        pass
     
     for prim_type in PrimType:
         if (prim_type == PrimType.Unknown):
