@@ -170,6 +170,11 @@ def _create_cone(obj:bpy.types.Object, bm:bmesh.types.BMesh,
         depth = size[2],
         matrix = identity,
         calc_uvs = calculate_uvs)
+    bmesh.ops.remove_doubles(
+        bm,
+        verts = bm.verts[:],
+        dist = .0000001
+    )
     if (size_policy == 'AXIS_SCALE'):
         size = (size[0], size[1], 1)
         bmesh.ops.scale(bm, vec=size, space=identity, verts=bm.verts[:])

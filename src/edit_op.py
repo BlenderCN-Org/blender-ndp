@@ -1,7 +1,7 @@
 import bpy
 from . props_containers import PropertiesContainer, get_properties_cache
 from . enums import CustomProperty, PrimType
-import time
+from . layout_utils import draw_prop_row
 
 def __setupProperly(cls):
     cls.bl_idname = "ndp.edit_{}".format(cls.prim_name).lower().replace(' ', '')
@@ -135,45 +135,35 @@ class _BaseOpEditPrim(bpy.types.Operator):
     
     def draw(self, context):
         layout = self.layout
+        props = self.props
 
-        if self.props.has_size_policy():
-            layout.prop(self.props, "size_policy")
-
-        self._on_draw(context, layout)
-
-        row = layout.row()
-        row.prop(self.props, CustomProperty.calculate_uvs.name, text="Generate UVs")
+        if props.has_size_policy():
+            layout.prop(props, "size_policy")
+        self._on_draw(context, layout, props)
+        layout.prop(props, 'calculate_uvs', text="Generate UVs")
 
         #for now this works inconsistently, commented it out:
         # transform = self.props_transform
-        # row = layout.row()
-        
-        # row.label(text="Location")
-        # row.prop(transform, "location_x", text="")
-        # row.prop(transform, "location_y", text="")
-        # row.prop(transform, "location_z", text="")
-
-        # transform = self.props_transform
-        # row = layout.row()
-        # row.label(text="Rotation")
-        # row.prop(transform, "rotation_x", text="")
-        # row.prop(transform, "rotation_y", text="")
-        # row.prop(transform, "rotation_z", text="")
+        # draw_prop_row(transform, layout, "Location",
+        #     ['location_x', 'location_y', 'location_z'])
+        # draw_prop_row(transform, layout, "Rotation",
+        #     ['rotation_x', 'rotation_y', 'rotation_z'])
     
-    def _on_draw(self, context, layout):
+    def _on_draw(self, context, layout, props):
         pass
-    
-    def _draw_size(self, context, layout):
-        row = layout.row()
-        row.label(text="Size(XYZ)")
-        row.prop(self.props, CustomProperty.size_x.name, text="")
-        row.prop(self.props, CustomProperty.size_y.name, text="")
-        row.prop(self.props, CustomProperty.size_z.name, text="")
 
         
 @__setupProperly
 class OpEditPlane(_BaseOpEditPrim):
     prim_name = PrimType.Plane.name
+    props : bpy.props.PointerProperty(type=PropertiesContainer)
+    props_transform : bpy.props.PointerProperty(type=_PropsTransform)
+
+    def _on_draw(self, context, layout, props):
+        draw_prop_row(self.props, layout, "Size(XY)",
+            ['size_x', 'size_y'])
+        draw_prop_row(self.props, layout, "Divisions",
+            ['divisions_x', 'divisions_y'])
 
 @__setupProperly
 class OpEditBox(_BaseOpEditPrim):
@@ -181,18 +171,11 @@ class OpEditBox(_BaseOpEditPrim):
     props : bpy.props.PointerProperty(type=PropertiesContainer)
     props_transform : bpy.props.PointerProperty(type=_PropsTransform)
 
-    def _on_draw(self, context, layout):
-        obj = context.object
-        layout : bpy.types.UILayout = self.layout
-        props = self.props
-
-        self._draw_size(context, layout)
-
-        row = layout.row()
-        row.label(text="Divisions")
-        row.prop(props, CustomProperty.divisions_x.name, text="")
-        row.prop(props, CustomProperty.divisions_y.name, text="")
-        row.prop(props, CustomProperty.divisions_z.name, text="")
+    def _on_draw(self, context, layout, props):
+        draw_prop_row(self.props, layout, "Size(XYZ)",
+            ['size_x', 'size_y', 'size_z'])
+        draw_prop_row(self.props, layout, "Divisions",
+            ['divisions_x', 'divisions_y', 'divisions_z'])
         
 @__setupProperly
 class OpEditCircle(_BaseOpEditPrim):
@@ -200,40 +183,80 @@ class OpEditCircle(_BaseOpEditPrim):
     props : bpy.props.PointerProperty(type=PropertiesContainer)
     props_transform : bpy.props.PointerProperty(type=_PropsTransform)
 
-    def _on_draw(self, context, layout):
-        obj = context.object
-        layout : bpy.types.UILayout = self.layout
-        props = self.props
-
-        row = layout.row()
-        row.label(text="Vertices")
-        row.prop(props, CustomProperty.divisions_x.name, text="")
-
-        size_policy = props.size_policy
+    def _on_draw(self, context, layout, props):
+        layout.prop(props, 'divisions_x', text="Vertices")
         if props.size_policy == 'AXIS_SCALE':
-            self._draw_size(context, layout)
-        elif props.size_policy == 'EXTERIOR_INTERIOR':
-            row = layout.row()
-            row.label("Radius")
-            row.prop(self, "radius_a")
-        
-        layout.prop(props, "fill_type")
+            draw_prop_row(props, layout, "Size(XY)",
+                ['size_x', 'size_y'])
+        elif props.size_policy == 'DEFAULT':
+            layout.prop(props, 'radius_a', text="Radius")
+        layout.prop(props, 'fill_type')
         
 @__setupProperly
 class OpEditUvSphere(_BaseOpEditPrim):
     prim_name = PrimType.UvSphere.name
+    props : bpy.props.PointerProperty(type=PropertiesContainer)
+    props_transform : bpy.props.PointerProperty(type=_PropsTransform)
+
+    def _on_draw(self, context, layout, props):
+        #segments, rings, radius (m)
+        layout.prop(props, 'divisions_x', text="Segments")
+        layout.prop(props, 'divisions_y', text="Rings")
+        if props.size_policy == 'AXIS_SCALE':
+            draw_prop_row(props, layout, "Size(XYZ)",
+                ['size_x', 'size_y', 'size_z'])
+        elif props.size_policy == 'DEFAULT':
+            layout.prop(props, 'radius_a', text="Radius")
         
 @__setupProperly
 class OpEditIcoSphere(_BaseOpEditPrim):
     prim_name = PrimType.IcoSphere.name
+    props : bpy.props.PointerProperty(type=PropertiesContainer)
+    props_transform : bpy.props.PointerProperty(type=_PropsTransform)
+
+    def _on_draw(self, context, layout, props):
+        #subdivisions, radius (m)
+        layout.prop(props, 'divisions_x', text="Subdivisions")
+        if props.size_policy == 'AXIS_SCALE':
+            draw_prop_row(props, layout, "Size(XYZ)",
+                ['size_x', 'size_y', 'size_z'])
+        elif props.size_policy == 'DEFAULT':
+            layout.prop(props, 'radius_a', text="Radius")
         
 @__setupProperly
 class OpEditCylinder(_BaseOpEditPrim):
     prim_name = PrimType.Cylinder.name
+    props : bpy.props.PointerProperty(type=PropertiesContainer)
+    props_transform : bpy.props.PointerProperty(type=_PropsTransform)
+
+    def _on_draw(self, context, layout, props):
+        #vertices, radius (m), depth (m), cap fill type
+        layout.prop(props, 'divisions_x', text="Vertices")
+        if props.size_policy == 'AXIS_SCALE':
+            draw_prop_row(props, layout, "Size(XYZ)",
+                ['size_x', 'size_y', 'size_z'])
+        elif props.size_policy == 'DEFAULT':
+            layout.prop(props, 'radius_a', text="Radius")
+            layout.prop(props, 'size_z', text="Depth")
+        layout.prop(props, 'fill_type')
         
 @__setupProperly
 class OpEditCone(_BaseOpEditPrim):
     prim_name = PrimType.Cone.name
+    props : bpy.props.PointerProperty(type=PropertiesContainer)
+    props_transform : bpy.props.PointerProperty(type=_PropsTransform)
+
+    def _on_draw(self, context, layout, props):
+        #vertices, radius 1 (m), radius 2(m), depth (m), cap fill type
+        layout.prop(props, 'divisions_x', text="Vertices")
+        if props.size_policy == 'AXIS_SCALE':
+            draw_prop_row(props, layout, "Size(XYZ)",
+                ['size_x', 'size_y', 'size_z'])
+        elif props.size_policy == 'DEFAULT':
+            layout.prop(props, 'radius_a', text="Radius 1")
+            layout.prop(props, 'radius_b', text="Radius 2")
+            layout.prop(props, 'size_z', text="Depth")
+        layout.prop(props, 'fill_type')
 
 
 CLASSES = [

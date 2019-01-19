@@ -35,9 +35,9 @@ class PropertiesContainer(bpy.types.PropertyGroup):
         items = prim_types,
         name = "Type")
     #divisions are also used as segments and rings for sphere, vertices for circle, etc
-    divisions_x : bpy.props.IntProperty(default=0, min=0, soft_max=100)
-    divisions_y : bpy.props.IntProperty(default=0, min=0, soft_max=100)
-    divisions_z : bpy.props.IntProperty(default=0, min=0, soft_max=100)
+    divisions_x : bpy.props.IntProperty(default=0, min=0, soft_max=10)
+    divisions_y : bpy.props.IntProperty(default=0, min=0, soft_max=10)
+    divisions_z : bpy.props.IntProperty(default=0, min=0, soft_max=10)
     #axis_based_size
     size_x : bpy.props.FloatProperty(default=1)
     size_y : bpy.props.FloatProperty(default=1)
@@ -45,7 +45,7 @@ class PropertiesContainer(bpy.types.PropertyGroup):
     #(radius), (cone's first radius), (torus's first param):
     radius_a : bpy.props.FloatProperty(default=1)
     #(cone's second radius), (torus's second param):
-    radius_b : bpy.props.FloatProperty(default=1)
+    radius_b : bpy.props.FloatProperty(default=0, soft_min=0)
     #fill type for caps on circle, cylinder, cone
     fill_type : bpy.props.EnumProperty(
         items = [
