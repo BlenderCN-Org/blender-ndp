@@ -186,7 +186,7 @@ class OpEditBox(_BaseOpEditPrim):
         layout : bpy.types.UILayout = self.layout
         props = self.props
 
-        self._draw_size(self, context, layout)
+        self._draw_size(context, layout)
 
         row = layout.row()
         row.label(text="Divisions")
