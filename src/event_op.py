@@ -36,7 +36,7 @@ def _register_events():
                     override['screen'] = window.screen
 
                 if override:
-                    bpy.ops.ndp.raise_if_context_restricted(override)
+                    bpy.ops.ndp.raise_if_context_restricted(override, 'INVOKE_DEFAULT')
                 else:
                     bpy.ops.ndp.raise_if_context_restricted('INVOKE_DEFAULT')
                 break
@@ -47,7 +47,7 @@ def _register_events():
         
         # print("NDP EVENTS REGISTERED!")
         if override:
-            bpy.ops.ndp.event_editmode(override)
+            bpy.ops.ndp.event_editmode(override, 'INVOKE_DEFAULT')
         else:
             bpy.ops.ndp.event_editmode('INVOKE_DEFAULT')
 
