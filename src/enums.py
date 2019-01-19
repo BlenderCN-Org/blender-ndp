@@ -16,13 +16,9 @@ class PrimType(Enum):
 class CustomProperty(Enum):
     prim_type = 0
 
-    divisions_x = 1
-    divisions_y = 2
-    divisions_z = 3
+    divisions = 1
 
-    size_x = 4
-    size_y = 5
-    size_z = 6
+    size = 4
 
     is_ndp = 7
 
@@ -30,7 +26,6 @@ class CustomProperty(Enum):
 
     calculate_uvs = 9
 
-    radius_a = 10
-    radius_b = 11
+    radius = 10
 
     size_policy = 12

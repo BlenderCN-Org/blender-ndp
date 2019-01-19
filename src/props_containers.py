@@ -34,18 +34,15 @@ class PropertiesContainer(bpy.types.PropertyGroup):
     prim_type : bpy.props.EnumProperty(
         items = prim_types,
         name = "Type")
-    #divisions are also used as segments and rings for sphere, vertices for circle, etc
-    divisions_x : bpy.props.IntProperty(default=0, min=0, soft_max=10)
-    divisions_y : bpy.props.IntProperty(default=0, min=0, soft_max=10)
-    divisions_z : bpy.props.IntProperty(default=0, min=0, soft_max=10)
+    #divisions are also used as segments and rings for sphere,
+    #vertices for circle, etc
+    divisions : bpy.props.IntVectorProperty(
+        min=0, size=3, default=(1,1,1))
     #axis_based_size
-    size_x : bpy.props.FloatProperty(default=1)
-    size_y : bpy.props.FloatProperty(default=1)
-    size_z : bpy.props.FloatProperty(default=1)
-    #(radius), (cone's first radius), (torus's first param):
-    radius_a : bpy.props.FloatProperty(default=1)
-    #(cone's second radius), (torus's second param):
-    radius_b : bpy.props.FloatProperty(default=0, soft_min=0)
+    size : bpy.props.FloatVectorProperty(
+        size=3, default=(1,1,1))
+    #(radius, radius2 for cones, toruses, etc):
+    radius : bpy.props.FloatVectorProperty(size=2, default=(1, 0))
     #fill type for caps on circle, cylinder, cone
     fill_type : bpy.props.EnumProperty(
         items = [
@@ -54,14 +51,11 @@ class PropertiesContainer(bpy.types.PropertyGroup):
             ('NOTHING', "Nothing", "Don't fill at all."),
             ],
         name = "Caps Fill Type")
-    # # pivot(relative):
-    # pivot_x : bpy.props.FloatProperty(default=.5, min=0, max=1)
-    # pivot_y : bpy.props.FloatProperty(default=.5, min=0, max=1)
-    # pivot_z : bpy.props.FloatProperty(default=.5, min=0, max=1)
     
     calculate_uvs : bpy.props.BoolProperty(
         name="Calculate UVs",
         default=True)
+
 
     size_policy : bpy.props.EnumProperty(
         items = _init_size_policy,
@@ -110,10 +104,10 @@ def get_properties_cache(context):
             continue
         setattr(getattr(cache, prim_type.name.lower()), "prim_type", prim_type.name.upper())
     
-    setattr(cache.circle, "divisions_x", 32)
+    cache.circle.divisions[0] = 32
     
-    setattr(cache.cylinder, "divisions_x", 32)
+    cache.cylinder.divisions[0] = 32
     
-    setattr(cache.cone, "divisions_x", 32)
+    cache.cone.divisions[0] = 32
 
     return cache

@@ -31,36 +31,21 @@ def _select_edge_ring(all_edges, axis):
 
 def _recreate_mesh(context, obj, func):
     ndp_props = obj.data.ndp_props
-    divisions = (
-        ndp_props.divisions_x,
-        ndp_props.divisions_y,
-        ndp_props.divisions_z)
-    size = (
-        ndp_props.size_x,
-        ndp_props.size_y,
-        ndp_props.size_z)
-    radius = (
-        ndp_props.radius_a,
-        ndp_props.radius_b)
-    calculate_uvs = ndp_props.calculate_uvs
-    fill_type = ndp_props.fill_type
-    
     mesh = obj.data
-    matrix = obj.matrix_world
-    bm = bmesh.new()
-    bmesh.ops.delete(bm, geom=bm.verts[:], context='VERTS')
     size_policy = ndp_props.size_policy
     if not size_policy:
         size_policy = 'DEFAULT'
+
+    bm = bmesh.new()
     bm = func(
         obj = obj,
         bm = bm,
-        matrix = matrix,
-        divisions = divisions,
-        size = size,
-        radius = radius,
-        fill_type = fill_type,
-        calculate_uvs = calculate_uvs,
+        matrix = obj.matrix_world,
+        divisions = ndp_props.divisions,
+        size = ndp_props.size,
+        radius = ndp_props.radius,
+        fill_type = ndp_props.fill_type,
+        calculate_uvs = ndp_props.calculate_uvs,
         size_policy = size_policy,
         identity = mathutils.Matrix.Identity(4))
     bm.to_mesh(mesh)

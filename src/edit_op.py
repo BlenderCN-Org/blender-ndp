@@ -1,7 +1,7 @@
 import bpy
 from . props_containers import PropertiesContainer, get_properties_cache
 from . enums import CustomProperty, PrimType
-from . layout_utils import draw_prop_row
+from . layout_utils import draw_prop_array
 
 def __setupProperly(cls):
     cls.bl_idname = "ndp.edit_{}".format(cls.prim_name).lower().replace(' ', '')
@@ -160,10 +160,10 @@ class OpEditPlane(_BaseOpEditPrim):
     props_transform : bpy.props.PointerProperty(type=_PropsTransform)
 
     def _on_draw(self, context, layout, props):
-        draw_prop_row(self.props, layout, "Size(XY)",
-            ['size_x', 'size_y'])
-        draw_prop_row(self.props, layout, "Divisions",
-            ['divisions_x', 'divisions_y'])
+        draw_prop_array(self.props, layout, "Size(XY)",
+            'size', [0, 1])
+        draw_prop_array(self.props, layout, "Divisions",
+            'divisions', [0, 1])
 
 @__setupProperly
 class OpEditBox(_BaseOpEditPrim):
@@ -172,10 +172,10 @@ class OpEditBox(_BaseOpEditPrim):
     props_transform : bpy.props.PointerProperty(type=_PropsTransform)
 
     def _on_draw(self, context, layout, props):
-        draw_prop_row(self.props, layout, "Size(XYZ)",
-            ['size_x', 'size_y', 'size_z'])
-        draw_prop_row(self.props, layout, "Divisions",
-            ['divisions_x', 'divisions_y', 'divisions_z'])
+        draw_prop_array(self.props, layout, "Size(XYZ)",
+            'size', [0, 1, 2])
+        draw_prop_array(self.props, layout, "Divisions",
+            'divisions', [0, 1, 2])
         
 @__setupProperly
 class OpEditCircle(_BaseOpEditPrim):
@@ -184,10 +184,10 @@ class OpEditCircle(_BaseOpEditPrim):
     props_transform : bpy.props.PointerProperty(type=_PropsTransform)
 
     def _on_draw(self, context, layout, props):
-        layout.prop(props, 'divisions_x', text="Vertices")
+        layout.prop(props, 'divisions', index=0, text="Vertices")
         if props.size_policy == 'AXIS_SCALE':
-            draw_prop_row(props, layout, "Size(XY)",
-                ['size_x', 'size_y'])
+            draw_prop_array(props, layout, "Size(XY)",
+                'size', [0, 1])
         elif props.size_policy == 'DEFAULT':
             layout.prop(props, 'radius_a', text="Radius")
         layout.prop(props, 'fill_type')
@@ -200,11 +200,11 @@ class OpEditUvSphere(_BaseOpEditPrim):
 
     def _on_draw(self, context, layout, props):
         #segments, rings, radius (m)
-        layout.prop(props, 'divisions_x', text="Segments")
-        layout.prop(props, 'divisions_y', text="Rings")
+        layout.prop(props, 'divisions', index=0, text="Segments")
+        layout.prop(props, 'divisions', index=1, text="Rings")
         if props.size_policy == 'AXIS_SCALE':
-            draw_prop_row(props, layout, "Size(XYZ)",
-                ['size_x', 'size_y', 'size_z'])
+            draw_prop_array(self.props, layout, "Size(XYZ)",
+                'size', [0, 1, 2])
         elif props.size_policy == 'DEFAULT':
             layout.prop(props, 'radius_a', text="Radius")
         
@@ -216,10 +216,10 @@ class OpEditIcoSphere(_BaseOpEditPrim):
 
     def _on_draw(self, context, layout, props):
         #subdivisions, radius (m)
-        layout.prop(props, 'divisions_x', text="Subdivisions")
+        layout.prop(props, 'divisions', index=0, text="Subdivisions")
         if props.size_policy == 'AXIS_SCALE':
-            draw_prop_row(props, layout, "Size(XYZ)",
-                ['size_x', 'size_y', 'size_z'])
+            draw_prop_array(self.props, layout, "Size(XYZ)",
+                'size', [0, 1, 2])
         elif props.size_policy == 'DEFAULT':
             layout.prop(props, 'radius_a', text="Radius")
         
@@ -231,10 +231,10 @@ class OpEditCylinder(_BaseOpEditPrim):
 
     def _on_draw(self, context, layout, props):
         #vertices, radius (m), depth (m), cap fill type
-        layout.prop(props, 'divisions_x', text="Vertices")
+        layout.prop(props, 'divisions', index=0, text="Vertices")
         if props.size_policy == 'AXIS_SCALE':
-            draw_prop_row(props, layout, "Size(XYZ)",
-                ['size_x', 'size_y', 'size_z'])
+            draw_prop_array(self.props, layout, "Size(XYZ)",
+                'size', [0, 1, 2])
         elif props.size_policy == 'DEFAULT':
             layout.prop(props, 'radius_a', text="Radius")
             layout.prop(props, 'size_z', text="Depth")
@@ -248,10 +248,10 @@ class OpEditCone(_BaseOpEditPrim):
 
     def _on_draw(self, context, layout, props):
         #vertices, radius 1 (m), radius 2(m), depth (m), cap fill type
-        layout.prop(props, 'divisions_x', text="Vertices")
+        layout.prop(props, 'divisions', index=0, text="Vertices")
         if props.size_policy == 'AXIS_SCALE':
-            draw_prop_row(props, layout, "Size(XYZ)",
-                ['size_x', 'size_y', 'size_z'])
+            draw_prop_array(self.props, layout, "Size(XYZ)",
+                'size', [0, 1, 2])
         elif props.size_policy == 'DEFAULT':
             layout.prop(props, 'radius_a', text="Radius 1")
             layout.prop(props, 'radius_b', text="Radius 2")
