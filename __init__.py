@@ -52,6 +52,7 @@ from .src.event_op import CLASSES as src_event_CLASSES
 classes.extend(src_event_CLASSES)
 from .src.event_op import register_events, unregister_events
 
+addon_keymaps = []
 
 def register():
     from bpy.utils import register_class
@@ -67,6 +68,14 @@ def register():
     
     register_events()
 
+    kcfg = bpy.context.window_manager.keyconfigs.addon
+    if kcfg:
+       km = kcfg.keymaps.new(name='3D View', space_type='VIEW_3D')
+       kmi = km.keymap_items.new("ndp.convert", 'C', 'PRESS', alt=True)
+       addon_keymaps.append((km, kmi))
+       kmi = km.keymap_items.new("ndp.toggle_wireframe", 'W', 'PRESS', ctrl=True)
+       addon_keymaps.append((km, kmi))
+
 
 def unregister():
     from bpy.utils import unregister_class
@@ -75,6 +84,12 @@ def unregister():
         unregister_class(c)
     
     unregister_events()
+
+    for km, kmi in addon_keymaps:
+        km.keymap_items.remove(kmi)
+    addon_keymaps.clear()
+
+    kcfg = bpy.context.window_manager.keyconfigs.addon
 
 
 separator = lambda menu, context: menu.layout.separator()
