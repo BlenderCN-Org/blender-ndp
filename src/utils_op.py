@@ -94,9 +94,11 @@ class MenuConvert(bpy.types.Menu):
 
     def draw(self, context):
         layout:bpy.types.UILayout = self.layout
-        convert_a = layout.operator('OBJECT_OT_convert', text="A")
+        convert_a = layout.operator('OBJECT_OT_convert',
+            text="Curve from Mesh/Text", icon='OUTLINER_OB_CURVE')
         convert_a.target = 'CURVE'
-        convert_b = layout.operator('OBJECT_OT_convert', text="B")
+        convert_b = layout.operator('OBJECT_OT_convert',
+            text="Curve from Curve/Meta/Surf/Text", icon='OUTLINER_OB_MESH')
         convert_b.target = 'MESH'
 
 CLASSES = [
