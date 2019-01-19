@@ -1,4 +1,3 @@
-Welcome to the blender-ndp wiki!
 Blender's standart primitives have a flaw: after you've created them, you're stuck with them as is.
 You can't just edit properties to change the sphere's resolution; you can't change amount of sides on the cylinder; etc.
 
